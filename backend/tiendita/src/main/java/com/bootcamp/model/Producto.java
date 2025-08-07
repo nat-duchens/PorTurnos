@@ -1,7 +1,7 @@
 package com.bootcamp.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.bootcamp.model.enums.EstadoProducto;
+import com.bootcamp.model.enums.DisponibilidadProducto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -20,7 +20,6 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Relación con el cliente que publicó el producto
     @ManyToOne(optional = false)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
@@ -35,7 +34,6 @@ public class Producto {
     @Size(max = 300)
     private String descripcion;
 
-    // URL de imagen
     @Column(columnDefinition = "TEXT")
     private String imagen;
 
@@ -49,10 +47,12 @@ public class Producto {
     @Size(max = 50)
     private String categoria;
 
+    //Enum
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private EstadoProducto estado = EstadoProducto.USADO;
 
+    //Enum
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private DisponibilidadProducto disponibilidad = DisponibilidadProducto.DISPONIBLE;
@@ -63,30 +63,5 @@ public class Producto {
     @PrePersist
     protected void onCreate() {
         this.fechaPublicacion = LocalDateTime.now();
-    }
-
-    // Enums
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    public enum EstadoProducto {
-        NUEVO,
-        SEMI_NUEVO,
-        USADO;
-
-        @JsonCreator
-        public static EstadoProducto fromString(String value) {
-            return EstadoProducto.valueOf(value.toUpperCase());
-        }
-    }
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    public enum DisponibilidadProducto {
-        DISPONIBLE,
-        VENDIDO,
-        PAUSADO;
-
-        @JsonCreator
-        public static DisponibilidadProducto fromString(String value) {
-            return DisponibilidadProducto.valueOf(value.toUpperCase());
-        }
     }
 }

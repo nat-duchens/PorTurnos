@@ -38,3 +38,15 @@ CREATE TABLE IF NOT EXISTS comentarios (
     FOREIGN KEY (producto_id) REFERENCES productos(id)
 
 );
+
+-- TABLA BLOGS
+CREATE TABLE IF NOT EXISTS blogs (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id BIGINT NOT NULL,
+    categoria VARCHAR(50) NOT NULL,
+    titulo VARCHAR(50) NOT NULL,
+    cuerpo_blog TEXT NOT NULL,
+    imagen TEXT,
+    fecha_publicacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+    );

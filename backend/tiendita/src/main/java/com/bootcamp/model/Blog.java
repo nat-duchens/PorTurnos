@@ -42,6 +42,8 @@ public class Blog {
     @Column(name = "fecha_publicacion", updatable = false)
     private LocalDateTime fechaPublicacion;
 
-
-
+    @PrePersist
+    protected void onCreate() {
+        this.fechaPublicacion= LocalDateTime.now();
+    }
 }
