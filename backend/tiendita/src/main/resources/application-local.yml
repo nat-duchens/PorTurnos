@@ -9,11 +9,11 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update # Modifica el schema para que coincida, sin borrar datos. En 'none' no toca el schema.
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL8Dialect
 
   sql:
     init:
-      mode: always # cambiar a always
+      mode: never # Para que no ejecute el script de schema.sql. En 'always' siempre ejecuta el script al iniciar.
       schema-locations: classpath:schema.sql
