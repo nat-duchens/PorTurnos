@@ -1,6 +1,8 @@
 package com.bootcamp.repository;
 
 import com.bootcamp.model.Venta;
+import com.bootcamp.model.enums.EstadoVenta;
+import com.bootcamp.model.enums.MetodoPago;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -27,19 +29,19 @@ public interface VentaRepository extends JpaRepository<Venta, Long> {
 
     // Buscar ventas por estado
     @Query("SELECT v FROM Venta v WHERE v.estadoVenta = :estado")
-    List<Venta> buscarPorEstado(@Param("estado") Venta.EstadoVenta estadoVenta);
+    List<Venta> buscarPorEstado(@Param("estado") EstadoVenta estadoVenta);
 
     // Buscar ventas por método de pago
     @Query("SELECT v FROM Venta v WHERE v.metodoPago = :metodoPago")
-    List<Venta> buscarPorMetodoPago(@Param("metodoPago") Venta.MetodoPago metodoPago);
+    List<Venta> buscarPorMetodoPago(@Param("metodoPago") MetodoPago metodoPago);
 
     // Buscar ventas en un rango de fechas
     @Query("SELECT v FROM Venta v WHERE v.fechaVenta BETWEEN :fechaInicio AND :fechaFin")
     List<Venta> buscarPorRangoFechas(@Param("fechaInicio") LocalDateTime fechaInicio,
                                      @Param("fechaFin") LocalDateTime fechaFin);
 
-    // Buscar ventas pendientes de entrega (usando enum en vez de string literal)
-    @Query("SELECT v FROM Venta v WHERE v.estadoVenta IN (com.bootcamp.model.Venta.EstadoVenta.PENDIENTE, com.bootcamp.model.Venta.EstadoVenta.CONFIRMADA)")
+    // Buscar ventas pendientes de entrega
+    @Query("SELECT v FROM Venta v WHERE v.estadoVenta IN (com.bootcamp.model.enums.EstadoVenta.PENDIENTE, com.bootcamp.model.enums.EstadoVenta.CONFIRMADA)")
     List<Venta> buscarPendientesDeEntrega();
 
     // Obtener total de ventas por vendedor

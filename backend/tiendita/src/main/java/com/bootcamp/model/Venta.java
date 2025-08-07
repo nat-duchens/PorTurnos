@@ -1,5 +1,7 @@
 package com.bootcamp.model;
 
+import com.bootcamp.model.enums.EstadoVenta;
+import com.bootcamp.model.enums.MetodoPago;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -119,37 +121,11 @@ public class Venta {
         }
     }
 
-    /** Setter interno (package-private) para que el servicio pueda asignar el total calculado */
+    /**
+     * Setter interno (package-private) para que el servicio pueda asignar el total calculado
+     */
     public void setTotalInterno(BigDecimal total) {
         this.total = total;
     }
 
-    // Enumeraciones
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    public enum MetodoPago {
-        EFECTIVO,
-        TRANSFERENCIA,
-        TARJETA_CREDITO,
-        TARJETA_DEBITO,
-        PAYPAL,
-        MERCADOPAGO;
-
-        @JsonCreator
-        public static MetodoPago desdeCadena(String valor) {
-            return MetodoPago.valueOf(valor.toUpperCase());
-        }
-    }
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    public enum EstadoVenta {
-        PENDIENTE,
-        CONFIRMADA,
-        ENTREGADA,
-        CANCELADA;
-
-        @JsonCreator
-        public static EstadoVenta desdeCadena(String valor) {
-            return EstadoVenta.valueOf(valor.toUpperCase());
-        }
-    }
 }

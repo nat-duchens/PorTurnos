@@ -1,6 +1,7 @@
 package com.bootcamp.controller;
 
 import com.bootcamp.model.Venta;
+import com.bootcamp.model.enums.EstadoVenta;
 import com.bootcamp.service.VentaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -119,16 +120,8 @@ public class VentaController {
 
     // Obtener ventas por estado
     @GetMapping("/estado/{estado}")
-    public ResponseEntity<List<Venta>> obtenerVentasPorEstado(@PathVariable String estado) {
-        try {
-            Venta.EstadoVenta estadoVenta = Venta.EstadoVenta.valueOf(estado.toUpperCase());
-            List<Venta> ventas = ventaService.obtenerVentasPorEstado(estadoVenta);
-            return new ResponseEntity<>(ventas, HttpStatus.OK);
-        } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<List<Venta>> obtenerVentasPorEstado(@PathVariable EstadoVenta estado) {
+        return ResponseEntity.ok(ventaService.obtenerVentasPorEstado(estado));
     }
 
     // Confirmar venta

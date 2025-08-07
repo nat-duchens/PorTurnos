@@ -1,6 +1,8 @@
 package com.bootcamp.service;
 
 import com.bootcamp.model.Venta;
+import com.bootcamp.model.enums.EstadoVenta;
+import com.bootcamp.model.enums.MetodoPago;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -20,8 +22,8 @@ public interface VentaService {
     List<Venta> obtenerVentasPorComprador(Long clienteCompradorId);
     List<Venta> obtenerVentasPorVendedor(Long clienteVendedorId);
     List<Venta> obtenerVentasPorProducto(Long productoId);
-    List<Venta> obtenerVentasPorEstado(Venta.EstadoVenta estadoVenta);
-    List<Venta> obtenerVentasPorMetodoPago(Venta.MetodoPago metodoPago);
+    List<Venta> obtenerVentasPorEstado(EstadoVenta estadoVenta);
+    List<Venta> obtenerVentasPorMetodoPago(MetodoPago metodoPago);
     List<Venta> obtenerVentasEntreFechas(LocalDateTime fechaInicio, LocalDateTime fechaFin);
     List<Venta> obtenerVentasPendientesEntrega();
 

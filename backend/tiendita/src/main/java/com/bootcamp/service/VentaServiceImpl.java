@@ -1,6 +1,8 @@
 package com.bootcamp.service;
 
 import com.bootcamp.model.Venta;
+import com.bootcamp.model.enums.EstadoVenta;
+import com.bootcamp.model.enums.MetodoPago;
 import com.bootcamp.repository.VentaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
@@ -25,7 +27,7 @@ public class VentaServiceImpl implements VentaService {
     @Override
     @Transactional
     public Venta guardarVenta(Venta venta) {
-        // Calcular total y fecha antes de validar/persistir
+        // Calcular total y fecha antes de persistir
         calcularTotal(venta);
         if (venta.getFechaVenta() == null) {
             venta.setFechaVenta(LocalDateTime.now());
@@ -77,12 +79,12 @@ public class VentaServiceImpl implements VentaService {
     }
 
     @Override
-    public List<Venta> obtenerVentasPorEstado(Venta.EstadoVenta estadoVenta) {
+    public List<Venta> obtenerVentasPorEstado(EstadoVenta estadoVenta) {
         return ventaRepository.buscarPorEstado(estadoVenta);
     }
 
     @Override
-    public List<Venta> obtenerVentasPorMetodoPago(Venta.MetodoPago metodoPago) {
+    public List<Venta> obtenerVentasPorMetodoPago(MetodoPago metodoPago) {
         return ventaRepository.buscarPorMetodoPago(metodoPago);
     }
 
@@ -101,7 +103,7 @@ public class VentaServiceImpl implements VentaService {
     public Venta confirmarVenta(Long ventaId) {
         Venta venta = ventaRepository.findById(ventaId)
                 .orElseThrow(() -> new EntityNotFoundException("Venta no encontrada con ID: " + ventaId));
-        venta.setEstadoVenta(Venta.EstadoVenta.CONFIRMADA);
+        venta.setEstadoVenta(EstadoVenta.CONFIRMADA);
         calcularTotal(venta);
         return ventaRepository.save(venta);
     }
@@ -111,7 +113,7 @@ public class VentaServiceImpl implements VentaService {
     public Venta marcarComoEntregada(Long ventaId) {
         Venta venta = ventaRepository.findById(ventaId)
                 .orElseThrow(() -> new EntityNotFoundException("Venta no encontrada con ID: " + ventaId));
-        venta.setEstadoVenta(Venta.EstadoVenta.ENTREGADA);
+        venta.setEstadoVenta(EstadoVenta.ENTREGADA);
         venta.setFechaEntrega(LocalDateTime.now());
         calcularTotal(venta);
         return ventaRepository.save(venta);
@@ -122,7 +124,7 @@ public class VentaServiceImpl implements VentaService {
     public Venta cancelarVenta(Long ventaId) {
         Venta venta = ventaRepository.findById(ventaId)
                 .orElseThrow(() -> new EntityNotFoundException("Venta no encontrada con ID: " + ventaId));
-        venta.setEstadoVenta(Venta.EstadoVenta.CANCELADA);
+        venta.setEstadoVenta(EstadoVenta.CANCELADA);
         calcularTotal(venta);
         return ventaRepository.save(venta);
     }
@@ -138,7 +140,7 @@ public class VentaServiceImpl implements VentaService {
             BigDecimal total = venta.getPrecioVenta()
                     .multiply(BigDecimal.valueOf(venta.getCantidadVendida()))
                     .setScale(2, RoundingMode.HALF_UP);
-            // Usamos el setter interno de la entidad
+            // Setter expuesto por la entidad para uso del servicio
             venta.setTotalInterno(total);
         }
     }
