@@ -19,10 +19,12 @@ public class ProductoServiceImpl implements ProductoService {
     public List<Producto> listar() {return productoRepository.findAll(); }
 
     @Override
-    public Optional<Producto> obtenerPorId(Long id) { return productoRepository.findById(id); }
+    public Optional<Producto> obtenerPorId(Long id) {
+        return productoRepository.findById(id); }
 
     @Override
-    public Producto guardar(Producto producto){ return productoRepository.save(producto); }
+    public Producto guardar(Producto producto){
+        return productoRepository.save(producto); }
 
     @Override
     public Producto actualizar(Long id, Producto producto) {
