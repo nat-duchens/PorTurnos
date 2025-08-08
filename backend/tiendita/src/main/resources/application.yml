@@ -1,7 +1,20 @@
-#Configuracion del Perfil
-
+# Para desarrollo local (localhost, root, sin contraseña)
 spring:
-  application:
-    name: tiendita
-  profiles:
-    active: local # Cambia a 'Developer', 'Production' segun corresponda
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+
+
+  #Podemos desactivar Hibernate DDL auto y forzar que Spring nuestro script SQL
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+app:
+  security:
+    cors:
+      dev: true  # Deshabilita CORS para Postman en desarrollo local

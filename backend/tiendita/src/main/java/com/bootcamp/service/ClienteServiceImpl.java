@@ -29,6 +29,18 @@ public class ClienteServiceImpl implements ClienteService {
         return clienteRepository.save(cliente);
     }
 
+    public Optional<Cliente> buscarClientePorNombreUsuario(String nombreUsuario) {
+        return clienteRepository.findByNombreUsuario(nombreUsuario);
+    }
+
+    public Boolean existeClientePorNombreUsuario(String nombreUsuario) {
+        return clienteRepository.existsByNombreUsuario(nombreUsuario);
+    }
+
+    public Boolean existeClientePorEmail(String email) {
+        return clienteRepository.existsByEmail(email);
+    }
+
     @Override
     public Cliente actualizar(Long id, Cliente cliente){
         cliente.setId(id);

@@ -4,14 +4,18 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import java.util.HashSet;
+import java.util.Set;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "clientes")
 @Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Cliente {
 
     @Id
@@ -22,6 +26,10 @@ public class Cliente {
     @Size(max = 12)
     @Column(name = "rut", unique = true, nullable = false)
     private String rut;
+
+    @Size(max = 20)
+    @Column(unique = true)
+    private String nombreUsuario;
 
     @NotBlank(message = "Los nombres son obligatorios")
     @Size(max = 100)
@@ -37,6 +45,9 @@ public class Cliente {
     @Column(unique = true, nullable = false)
     private String email;
 
+    @Size(max = 120)
+    private String password;
+
     @Size(max = 20)
     private String telefono;
 
@@ -51,4 +62,10 @@ public class Cliente {
     protected void onCreate() {
         this.fechaRegistro = LocalDateTime.now();
     }
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "usuarios_roles",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "rol_id"))
+    private Set<Rol> roles = new HashSet<>();
 }
