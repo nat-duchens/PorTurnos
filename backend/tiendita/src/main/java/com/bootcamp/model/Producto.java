@@ -1,5 +1,6 @@
 package com.bootcamp.model;
 
+import com.bootcamp.model.enums.CategoriaProducto;
 import com.bootcamp.model.enums.EstadoProducto;
 import com.bootcamp.model.enums.DisponibilidadProducto;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -44,8 +45,10 @@ public class Producto {
     @NotNull(message = "La cantidad es obligatoria")
     private Integer cantidad;
 
-    @Size(max = 50)
-    private String categoria;
+    //Enum
+    @Enumerated(EnumType.STRING)
+    @Column(name = "categoria", nullable = false, length = 50)
+    private CategoriaProducto categoria;
 
     //Enum
     @Enumerated(EnumType.STRING)

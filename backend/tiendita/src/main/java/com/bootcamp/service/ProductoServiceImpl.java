@@ -1,9 +1,10 @@
 package com.bootcamp.service;
 
-
 import com.bootcamp.model.Producto;
 import com.bootcamp.repository.ProductoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,5 +39,21 @@ public class ProductoServiceImpl implements ProductoService {
         productoRepository.deleteById(id);
     }
 
+    // Buscar todos los productos
+    @Override
+    public Page<Producto> listar(Pageable pageable) {
+        return productoRepository.findAll(pageable);
+    }
 
+    //Buscar por nombre del producto
+    @Override
+    public Page<Producto> buscarPorNombre(String nombreProducto, Pageable pageable) {
+        return productoRepository.findByNombreProductoContainingIgnoreCase(nombreProducto, pageable);
+    }
+
+    // Buscar por categoria
+    @Override
+    public Page<Producto> listarOrdenadoPorCategoria(Pageable pageable) {
+        return productoRepository.findAllByOrderByCategoriaAsc(pageable);
+    }
 }
