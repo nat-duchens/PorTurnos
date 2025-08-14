@@ -204,38 +204,76 @@
 /*============================================================*/
 /* ---------- Estilos para los miebros del Equipo ---------- */
 /*==========================================================*/
-
-/* Tarjetas de equipo */
+/* Tarjetas de equipo (rectangulares y consistentes) */
 .equipo-card {
-    flex: 1 1 200px; /* ancho mínimo y responsive */
+    width: 260px;            /* -> ANCHO explícito */
+    max-width: 80vw;         /* por si la pantalla es muy angosta */
+    height: 64px;            /* -> BAJITA (rectángulo horizontal) */
     text-align: center;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: 0 1rem;
+    border-radius: 12px;
     color: #fff;
     display: flex;
-    align-items: center;  /* centra vertical */
+    align-items: center;     /* centra vertical */
     justify-content: center; /* centra horizontal */
     font-weight: bold;
+    margin-top: 12px;        /* separa de la foto */
+    /* quita cualquier efecto anterior de flex-basis */
+    flex: initial;           /* <- IMPORTANTE: anula flex: 0 0 200px */
 }
 
-/* Colores de las tarjetas */
-.equipo-card.azul {
-    background-color: var(--color-azul);
+/* Colores de las tarjetas (mantén tus variables) */
+.equipo-card.azul { background-color: var(--color-azul); }
+.equipo-card.rosa { background-color: var(--color-rosa); }
+.equipo-card.verde { background-color: var(--color-verde); }
+.equipo-card.amarillo { background-color: var(--color-amarillo); color: #000; }
+
+/* Contenedor del equipo (distribución y centrado) */
+.equipo-container {
+    display: flex;
+    justify-content: space-around; /* reparte con espacio */
+    flex-wrap: wrap;
+    gap: 32px;                     /* un poco más de aire */
+    text-align: center;
 }
 
-.equipo-card.rosa {
-    background-color: var(--color-rosa);
+/* Cada persona (foto arriba, tarjeta abajo) */
+.equipo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.equipo-card.verde {
-    background-color: var(--color-verde);
+/* Imagen redonda */
+.equipo-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
 }
 
-.equipo-card.amarillo {
-    background-color: var(--color-amarillo);
-    color: #000;
+/* Responsive suave */
+@media (max-width: 576px) {
+    .equipo-img { width: 120px; height: 120px; }
+    .equipo-card { width: 220px; height: 56px; }
 }
 
-/*===================================================*/
+/*===================================================================*/
+/* Ajusta botones del footer para que se vean como enlaces pequeños */
+/*=================================================================*/
+.footer-menus .btn-link.pt-footlink {
+    font-size: 0.875rem; /* igual que los enlaces pequeños */
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+}
 
-/*===================================================*/
+.footer-menus .btn-link.pt-footlink:hover {
+    text-decoration: underline;
+}
+
+/*===================================================================*/
+
+/*=================================================================*/
+

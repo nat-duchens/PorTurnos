@@ -10,6 +10,11 @@ import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import Terminos from './pages/Terminos.jsx'
 import Nosotros from "./pages/Nosotros.jsx";
+import Conducta from "./pages/Conducta.jsx";
+import Envios from "./pages/Envios.jsx";
+import Privacidad from "./pages/Privacidad.jsx";
+import Contacto from "./pages/Contacto.jsx";
+import ResetPassword from "./pages/ResetPassword.jsx";
 
 export default function App() {
     return (
@@ -26,6 +31,12 @@ export default function App() {
                         <Route path="/register" element={<Register />} />
                         <Route path="/terminos" element={<Terminos />} />
                         <Route path="/nosotros" element={<Nosotros />} />
+                        <Route path="/conducta" element={<Conducta />} />
+                        <Route path="/envios" element={<Envios />} />
+                        <Route path="/privacidad" element={<Privacidad />} />
+                        <Route path="/contacto" element={<Contacto />} />
+                        <Route path="/reset-password" element={<ResetPassword />} />
+
                     </Route>
                 </Routes>
             </main>

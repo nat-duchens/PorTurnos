@@ -1,4 +1,3 @@
-/// src/pages/Login.jsx
 import { NavLink } from 'react-router-dom'
 import React from 'react'
 import logo from '../assets/img/LogoPorTurnos.png'
@@ -22,18 +21,14 @@ export default function Login() {
                                     <img
                                         src={logo}
                                         alt="Logo Por Turnos"
-                                        style={{
-                                            height: '80px',
-                                        }}
+                                        style={{ height: '80px' }}
                                     />
                                     <h2 className="mt-2 gradient-title">Login</h2>
                                 </div>
 
                                 <form onSubmit={handleSubmit}>
                                     <div className="mb-3">
-                                        <label htmlFor="loginEmail" className="form-label">
-                                            Correo electrónico
-                                        </label>
+                                        <label htmlFor="loginEmail" className="form-label">Correo electrónico</label>
                                         <input
                                             type="email"
                                             className="form-control"
@@ -45,9 +40,7 @@ export default function Login() {
                                     </div>
 
                                     <div className="mb-3">
-                                        <label htmlFor="loginPassword" className="form-label">
-                                            Contraseña
-                                        </label>
+                                        <label htmlFor="loginPassword" className="form-label">Contraseña</label>
                                         <input
                                             type="password"
                                             className="form-control"
@@ -77,12 +70,15 @@ export default function Login() {
                                     </div>
                                 </form>
 
-                                <p className="text-center mt-3 mb-0 small">
-                                    ¿No tienes cuenta?{' '}
-                                    <NavLink to="/register" className="link-primary fw-semibold">
-                                        Regístrate
+                                <div className="d-flex justify-content-between mt-3">
+                                    <NavLink to="/reset-password" className="small link-secondary">
+                                        ¿Olvidaste tu contraseña?
                                     </NavLink>
-                                </p>
+                                    <span className="small">
+                    ¿No tienes cuenta?{' '}
+                                        <NavLink to="/register" className="link-primary fw-semibold">Regístrate</NavLink>
+                  </span>
+                                </div>
                             </div>
                         </div>
                     </div>
