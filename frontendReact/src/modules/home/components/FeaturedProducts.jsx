@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { featuredProducts } from '../utils/dummyData';
 
 export default function FeaturedProducts() {
@@ -22,7 +23,7 @@ export default function FeaturedProducts() {
                   <p className="card-text flex-grow-1">{product.description}</p>
                   <div className="d-flex justify-content-between align-items-center mt-3">
                     <span className="fw-bold text-primary">${product.price.toLocaleString('es-CL')} CLP</span>
-                    <button className="btn btn-sm btn-outline-primary">Añadir al carrito</button>
+                    <NavLink to="cart" className="btn btn-sm btn-outline-primary">Añadir al carrito</NavLink>
                   </div>
                 </div>
               </div>
@@ -31,7 +32,7 @@ export default function FeaturedProducts() {
         </div>
         
         <div className="text-center mt-5">
-          <a href="#" className="btn btn-primary btn-lg">Ver todos los productos</a>
+          <NavLink to="/marketplace" className="btn btn-primary btn-lg">Ver todos los productos</NavLink>
         </div>
       </div>
     </section>
