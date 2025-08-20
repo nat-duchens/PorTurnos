@@ -14,14 +14,14 @@ export default function ProductDetail() {
   // Datos de ejemplo para un producto
   const sampleProduct = {
     id: '1',
-    title: 'Catan - Edición Básica',
-    description: 'Juego de mesa de estrategia y comercio. Apenas usado, en perfecto estado. Incluye todas las piezas originales y las reglas. La caja presenta algunos signos mínimos de desgaste en las esquinas, pero el contenido está como nuevo. Ideal para quienes quieren iniciarse en los juegos de mesa modernos.',
-    price: 35.99,
-    originalPrice: 49.99,
-    category: 'estrategia',
-    condition: 'como-nuevo',
-    completeness: 'completo',
-    images: [
+    nombre_producto: 'Catan - Edición Básica',
+    descripcion: 'Juego de mesa de estrategia y comercio. Apenas usado, en perfecto estado. Incluye todas las piezas originales y las reglas. La caja presenta algunos signos mínimos de desgaste en las esquinas, pero el contenido está como nuevo. Ideal para quienes quieren iniciarse en los juegos de mesa modernos.',
+    precio: 10.990,
+    precioOriginal: 49.99,
+    categoria: 'estrategia',
+    estado: 'como-nuevo',
+    completitud: 'completo',
+    imagenes: [
       'https://placehold.co/600x400/2c3e50/ffffff?text=Catan+1',
       'https://placehold.co/600x400/34495e/ffffff?text=Catan+2',
       'https://placehold.co/600x400/2980b9/ffffff?text=Catan+3',
@@ -332,10 +332,10 @@ export default function ProductDetail() {
                 </div>
                 
                 <div className="d-grid gap-2">
-                  <button className="btn btn-primary btn-lg">
+                  <Link to="/marketplace/cart" className="btn btn-primary btn-lg">
                     <i className="bi bi-cart-plus me-2"></i>
                     Comprar ahora
-                  </button>
+                  </Link>
                   <button 
                     className="btn btn-outline-primary" 
                     onClick={() => setShowContactForm(!showContactForm)}

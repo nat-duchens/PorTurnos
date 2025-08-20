@@ -43,7 +43,7 @@ export default function ProductCard({ product }) {
     <div className="card product-card border-0 shadow-sm h-100">
       {/* Imagen del producto con badges */}
       <div className="card-img-container position-relative">
-        <Link to={`/product/${product.id}`}>
+        <Link to={`/marketplace/product/${product.id}`}>
           <img 
             src={product.images[0]} 
             className="card-img-top" 
@@ -83,7 +83,7 @@ export default function ProductCard({ product }) {
         
         {/* Título del producto */}
         <h5 className="card-title mb-1">
-          <Link to={`/product/${product.id}`} className="text-decoration-none text-dark product-title">
+          <Link to={`/marketplace/product/${product.id}`} className="text-decoration-none text-dark product-title">
             {product.title}
           </Link>
         </h5>
@@ -136,12 +136,12 @@ export default function ProductCard({ product }) {
         
         {/* Botones de acción */}
         <div className="d-flex mt-auto gap-2">
-          <Link to={`/product/${product.id}`} className="btn btn-sm btn-primary flex-grow-1">
+          <Link to={`/marketplace/product/${product.id}`} className="btn btn-sm btn-primary flex-grow-1">
             Ver detalles
           </Link>
-          <button className="btn btn-sm btn-outline-primary">
+          <Link to="/marketplace/cart" className="btn btn-sm btn-outline-primary">
             <i className="bi bi-cart-plus"></i>
-          </button>
+          </Link>
           <button className="btn btn-sm btn-outline-danger">
             <i className="bi bi-heart"></i>
           </button>

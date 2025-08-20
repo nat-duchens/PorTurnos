@@ -17,6 +17,7 @@ import PublishGameForm from './components/marketplace/PublishGameForm.jsx'
 import MessageSystem from './components/marketplace/MessageSystem.jsx'
 import SellerDashboard from './pages/SellerDashboard.jsx'
 import NotificationsPage from './pages/NotificationsPage.jsx'
+import Cart from './pages/Cart.jsx'
 
 export default function App() {
     return (
@@ -40,6 +41,7 @@ export default function App() {
                         <Route path="/marketplace/messages" element={<MessageSystem />} />
                         <Route path="/marketplace/seller-dashboard" element={<SellerDashboard />} />
                         <Route path="/marketplace/notifications" element={<NotificationsPage />} />
+                        <Route path="/marketplace/cart" element={<Cart />} />
                       
                     </Route>
                 </Routes>
