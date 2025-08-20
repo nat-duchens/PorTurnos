@@ -10,7 +10,7 @@ export default function Hero() {
               <h1 className="display-4 fw-bold">Bienvenido a <span className="text-warning">PORTURNOS</span></h1>
               <p className="lead mb-4">{heroContent.subtitle}</p>
               <div className="d-flex gap-3">
-                <a href="#productos" className="btn btn-warning btn-lg">Explorar productos</a>
+                <NavLink to="/marketplace" className="btn btn-warning btn-lg">Explorar productos</NavLink>
                 <NavLink to="/nosotros" className="btn btn-outline-light btn-lg">Conoce más</NavLink>
               </div>
             </div>

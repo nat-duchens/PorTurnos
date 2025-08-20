@@ -227,3 +227,4 @@ export const filterOptions = {
   completeness: completenessOptions,
   sorting: sortOptions
 };
+

@@ -1,58 +1,22 @@
-import { useState } from 'react';
-import ProductGrid from '../components//ProductGrid';
+import { useState, useEffect } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+import ProductGrid from '../components/ProductGrid';
 
 export default function Marketplace() {
   const [searchQuery, setSearchQuery] = useState('');
+  const location = useLocation();
+
+  // Obtener el parámetro de búsqueda de la URL
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const search = searchParams.get('search');
+    if (search) {
+      setSearchQuery(search);
+    }
+  }, [location.search]);
   
   return (
     <div className="marketplace-page">
-      {/* Banner del marketplace */}
-      <div className="bg-primary text-white py-5">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6">
-              <h1 className="display-5 fw-bold mb-3">Marketplace de Juegos Usados</h1>
-              <p className="lead mb-4">
-                Encuentra juegos de mesa de segunda mano a precios increíbles o vende los tuyos
-                que ya no usas.
-              </p>
-              
-              {/* Buscador */}
-              <div className="d-flex">
-                <input
-                  type="text"
-                  className="form-control form-control-lg"
-                  placeholder="Buscar juegos..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-                <button className="btn btn-light btn-lg ms-2">
-                  <i className="bi bi-search"></i>
-                </button>
-              </div>
-              
-              <div className="mt-4 d-flex gap-2">
-                <span className="badge bg-light text-dark p-2">Eurogames</span>
-                            <span className="badge bg-light text-dark p-2">Cooperativos</span>
-                            <span className="badge bg-light text-dark p-2">CCG</span>
-                            <span className="badge bg-light text-dark p-2">JDR</span>
-              </div>
-            </div>
-            <div className="col-lg-6 d-none d-lg-block">
-              <div className="position-relative">
-                <img 
-                  src="https://placehold.co/600x400/2c3e50/ffffff?text=Marketplace" 
-                  alt="Marketplace de juegos" 
-                  className="img-fluid rounded-3 shadow"
-                />
-                <div className="position-absolute top-0 end-0 bg-success text-white p-2 rounded m-2">
-                  <small>+500 Juegos disponibles</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       
       {/* Estadísticas */}
       <div className="bg-light py-3 border-bottom">
@@ -81,7 +45,7 @@ export default function Marketplace() {
       </div>
       
       {/* Contenido principal - Grid de productos */}
-      <ProductGrid />
+      <ProductGrid searchQuery={searchQuery} />
       
       {/* Sección de información */}
       <section className="py-5 bg-light">

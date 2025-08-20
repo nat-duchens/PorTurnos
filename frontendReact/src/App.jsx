@@ -22,6 +22,7 @@ import PublishGameForm from './modules/seller/components/PublishGameForm.jsx'
 import MessageSystem from './modules/marketplace/components/MessageSystem.jsx'
 import SellerDashboard from './modules/seller/pages/sellerDashboard.jsx'
 import NotificationsPage from './modules/layouts/notifications/pages/NotificationsPage.jsx'
+import Cart from './modules/marketplace/pages/Cart.jsx'
 // Importaciones de autenticación
 import { AuthProvider } from './modules/auth/context/AuthContext.jsx'
 import ProtectedRoute from './modules/auth/components/ProtectedRoute.jsx'
@@ -47,6 +48,7 @@ export default function App() {
                             <Route path="/terminos" element={<Terminos />} />
                             <Route path="/conducta" element={<Conducta />} />
                             <Route path="/privacidad" element={<Privacidad />} />
+                            <Route path="/cart" element={<Cart />} />
                             {/* Rutas del marketplace */}
                                 <Route path="/marketplace" element={<Marketplace />} />
                                 <Route path="/marketplace/product/:productId" element={<ProductDetail />} />

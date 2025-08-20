@@ -40,88 +40,111 @@ export default function ProductCard({ product }) {
   const conditionBadge = getConditionBadge(product.condition);
   
   return (
-    <div className="card h-100 product-card border-0 shadow-sm">
+    <div className="card product-card border-0 shadow-sm h-100">
       {/* Imagen del producto con badges */}
-      <div className="position-relative">
-        <Link to={`/product/${product.id}`}>
+      <div className="card-img-container position-relative">
+        <Link to={`/marketplace/product/${product.id}`}>
           <img 
             src={product.images[0]} 
             className="card-img-top" 
             alt={product.title} 
-            style={{ height: '200px', objectFit: 'cover' }} 
           />
         </Link>
         
         {/* Badge de estado */}
-        <span className={`position-absolute top-0 start-0 badge bg-${conditionBadge.color} m-2`}>
-          {conditionBadge.text}
-        </span>
+        <div className="condition-badge">
+          <span className={`badge bg-${conditionBadge.color}`}>
+            {conditionBadge.text}
+          </span>
+        </div>
         
         {/* Badge de descuento si existe */}
         {discountPercentage > 0 && (
-          <span className="position-absolute top-0 end-0 badge bg-danger m-2">
-            -{discountPercentage}%
-          </span>
+          <div className="discount-badge">
+            <span className="badge bg-danger">
+              -{discountPercentage}%
+            </span>
+          </div>
         )}
         
-        {/* Badge de completitud */}
-        <span className={`position-absolute bottom-0 start-0 badge ${product.completeness === 'completo' ? 'bg-success' : 'bg-warning'} m-2`}>
-          {product.completeness === 'completo' ? 'Completo' : 'Falta componentes'}
-        </span>
+        {/* Envío gratis - estilo Mercado Libre */}
+        <div className="position-absolute bottom-0 start-0 m-2">
+          <span className="badge bg-success text-white">
+            <i className="bi bi-truck me-1"></i>
+            Envío gratis
+          </span>
+        </div>
       </div>
       
       {/* Cuerpo de la tarjeta */}
       <div className="card-body d-flex flex-column">
-        <div className="d-flex justify-content-between align-items-start mb-1">
-          <span className="badge bg-secondary">{product.category}</span>
-          <div className="d-flex">
-            {renderRatingStars(product.rating)}
-            <span className="ms-1 small text-muted">({product.reviewCount})</span>
-          </div>
-        </div>
+        {/* Categoría como texto pequeño */}
+        <small className="text-muted text-uppercase mb-1">{product.category}</small>
         
+        {/* Título del producto */}
         <h5 className="card-title mb-1">
-          <Link to={`/product/${product.id}`} className="text-decoration-none text-dark">
+          <Link to={`/marketplace/product/${product.id}`} className="text-decoration-none text-dark product-title">
             {product.title}
           </Link>
         </h5>
         
-        <p className="card-text small text-truncate mb-2">{product.description}</p>
+        {/* Precio con descuento */}
+        <div className="mb-1">
+          <span className="h5 text-primary mb-0">${product.price.toLocaleString('es-CL')}</span>
+          {product.originalPrice && (
+            <>
+              <span className="text-muted text-decoration-line-through ms-2 small">
+                ${product.originalPrice.toLocaleString('es-CL')}
+              </span>
+              <span className="ms-1 small text-success">
+                {discountPercentage}% OFF
+              </span>
+            </>
+          )}
+        </div>
         
-        <div className="mt-auto">
-          <div className="d-flex align-items-center justify-content-between">
-            <div>
-              <span className="h5 text-primary mb-0">${product.price.toLocaleString('es-CL')} CLP</span>
-              {product.originalPrice && (
-                <span className="text-muted text-decoration-line-through ms-2 small">
-                  ${product.originalPrice.toLocaleString('es-CL')} CLP
-                </span>
-              )}
-            </div>
-            
-            <div className="d-flex align-items-center">
-              <img 
-                src={product.sellerAvatar} 
-                alt={product.sellerName}
-                className="rounded-circle me-1"
-                width="20"
-                height="20"
-              />
-              <small className="text-muted">{product.sellerName}</small>
-            </div>
+        {/* Completitud como texto */}
+        <div className="mb-2">
+          <small className={`${product.completeness === 'completo' ? 'text-success' : 'text-warning'}`}>
+            <i className={`bi ${product.completeness === 'completo' ? 'bi-check-circle' : 'bi-exclamation-triangle'} me-1`}></i>
+            {product.completeness === 'completo' ? 'Juego completo' : 'Faltan componentes'}
+          </small>
+        </div>
+        
+        {/* Descripción corta */}
+        <p className="card-text small text-muted mb-2 text-truncate">{product.description}</p>
+        
+        {/* Valoración */}
+        <div className="d-flex align-items-center mb-3">
+          <div className="me-2">
+            {renderRatingStars(product.rating)}
           </div>
-          
-          <div className="d-flex mt-3 gap-2">
-            <Link to={`/product/${product.id}`} className="btn btn-sm btn-outline-primary flex-grow-1">
-              Ver detalles
-            </Link>
-            <button className="btn btn-sm btn-primary">
-              <i className="bi bi-cart-plus"></i>
-            </button>
-            <button className="btn btn-sm btn-outline-danger">
-              <i className="bi bi-heart"></i>
-            </button>
-          </div>
+          <span className="small text-muted">({product.reviewCount})</span>
+        </div>
+        
+        {/* Vendedor */}
+        <div className="d-flex align-items-center mb-3">
+          <img 
+            src={product.sellerAvatar} 
+            alt={product.sellerName}
+            className="rounded-circle me-2"
+            width="24"
+            height="24"
+          />
+          <small>Vendido por <span className="text-primary">{product.sellerName}</span></small>
+        </div>
+        
+        {/* Botones de acción */}
+        <div className="d-flex mt-auto gap-2">
+          <Link to={`/marketplace/product/${product.id}`} className="btn btn-sm btn-primary flex-grow-1">
+            Ver detalles
+          </Link>
+          <Link to="/cart" className="btn btn-sm btn-outline-primary">
+            <i className="bi bi-cart-plus"></i>
+          </Link>
+          <button className="btn btn-sm btn-outline-danger">
+            <i className="bi bi-heart"></i>
+          </button>
         </div>
       </div>
     </div>

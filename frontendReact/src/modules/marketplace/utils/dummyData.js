@@ -189,6 +189,109 @@ export const sampleConversations = [
   }
 ];
 
+export const defaultFilters = {
+  priceRange: { min: 0, max: 200 },
+  condition: [],
+  categories: [],
+  completeness: '',
+  sortBy: 'newest'
+};
+
+// =============================
+// DATOS PARA RATING SYSTEM
+// =============================
+
+export const sampleReviews = [
+  {
+    id: '1',
+    rating: 5,
+    comment: 'Excelente vendedor. El juego estaba en perfecto estado y el envío fue muy rápido.',
+    author: {
+      name: 'Carlos Rodríguez',
+      avatar: 'https://placehold.co/100/3498db/ffffff?text=CR'
+    },
+    date: new Date('2023-10-15')
+  },
+  {
+    id: '2',
+    rating: 4,
+    comment: 'Todo correcto. El juego está en buen estado aunque la caja tiene algún roce.',
+    author: {
+      name: 'Laura Benítez',
+      avatar: 'https://placehold.co/100/e74c3c/ffffff?text=LB'
+    },
+    date: new Date('2023-10-10')
+  },
+  {
+    id: '3',
+    rating: 5,
+    comment: 'Vendedor muy atento y comunicativo. El juego está como nuevo.',
+    author: {
+      name: 'Miguel Álvarez',
+      avatar: 'https://placehold.co/100/27ae60/ffffff?text=MA'
+    },
+    date: new Date('2023-10-05')
+  }
+];
+
+export const ratingLabels = {
+  1: 'Malo',
+  2: 'Regular',
+  3: 'Bueno',
+  4: 'Muy bueno',
+  5: 'Excelente'
+};
+
+export const ratingDistribution = {
+  5: 70,
+  4: 20,
+  3: 5,
+  2: 3,
+  1: 2
+};
+
+export const ratingSummary = {
+  average: 4.7,
+  totalReviews: 28
+};
+
+// =============================
+// CONFIGURACIONES GENERALES
+// =============================
+
+export const currencySymbol = '€';
+
+export const placeholderImages = {
+  avatar: (initials, color = '3498db') => `https://placehold.co/100/${color}/ffffff?text=${initials}`,
+  product: (text, color = '2c3e50') => `https://placehold.co/600x400/${color}/ffffff?text=${text}`
+};
+
+export const apiEndpoints = {
+  search: '/api/search',
+  products: '/api/products',
+  messages: '/api/messages',
+  ratings: '/api/ratings',
+  conversations: '/api/messages/conversations'
+};
+
+export const loadingDelay = 800; // milliseconds
+
+// =============================
+// FUNCIONES HELPER
+// =============================
+
+export const createTimestamp = (minutesAgo) => {
+  return new Date(Date.now() - 1000 * 60 * minutesAgo);
+};
+
+export const generatePlaceholderImage = (text, bgColor = '2c3e50', textColor = 'ffffff') => {
+  return `https://placehold.co/600x400/${bgColor}/${textColor}?text=${encodeURIComponent(text)}`;
+};
+
+export const formatPrice = (price) => {
+  return `${price.toFixed(2)}${currencySymbol}`;
+};
+
 // =============================
 // DATOS PARA PRODUCT GRID
 // =============================
@@ -292,105 +395,127 @@ export const sampleProducts = [
   }
 ];
 
-export const defaultFilters = {
-  priceRange: { min: 0, max: 200 },
-  condition: [],
-  categories: [],
-  completeness: '',
-  sortBy: 'newest'
-};
+// ================================
+// DATOS DEL CARRITO DE COMPRAS
+// ================================
 
-// =============================
-// DATOS PARA RATING SYSTEM
-// =============================
-
-export const sampleReviews = [
+// Productos de ejemplo para el carrito
+export const sampleCartItems = [
   {
     id: '1',
-    rating: 5,
-    comment: 'Excelente vendedor. El juego estaba en perfecto estado y el envío fue muy rápido.',
-    author: {
-      name: 'Carlos Rodríguez',
-      avatar: 'https://placehold.co/100/3498db/ffffff?text=CR'
-    },
-    date: new Date('2023-10-15')
+    nombre_producto: 'Catan - Edición Básica',
+    precio: 10.990,
+    cantidad: 1,
+    imagen: 'https://placehold.co/600x400/2c3e50/ffffff?text=Catan',
+    vendedor: 'María G.'
   },
   {
-    id: '2',
-    rating: 4,
-    comment: 'Todo correcto. El juego está en buen estado aunque la caja tiene algún roce.',
-    author: {
-      name: 'Laura Benítez',
-      avatar: 'https://placehold.co/100/e74c3c/ffffff?text=LB'
-    },
-    date: new Date('2023-10-10')
-  },
-  {
-    id: '3',
-    rating: 5,
-    comment: 'Vendedor muy atento y comunicativo. El juego está como nuevo.',
-    author: {
-      name: 'Miguel Álvarez',
-      avatar: 'https://placehold.co/100/27ae60/ffffff?text=MA'
-    },
-    date: new Date('2023-10-05')
+    id: '4',
+    nombre_producto: 'Magic: The Gathering - Lote de cartas',
+    precio: 89.99,
+    cantidad: 1,
+    imagen: 'https://placehold.co/600x400/8e44ad/ffffff?text=Magic',
+    vendedor: 'Pedro S.'
   }
 ];
 
-export const ratingLabels = {
-  1: 'Malo',
-  2: 'Regular',
-  3: 'Bueno',
-  4: 'Muy bueno',
-  5: 'Excelente'
+// Configuración del carrito
+export const cartConfig = {
+  loadingTimeout: 800, // milisegundos para simular carga
+  envioGratuito: true,
+  costoEnvio: 0
 };
 
-export const ratingDistribution = {
-  5: 70,
-  4: 20,
-  3: 5,
-  2: 3,
-  1: 2
+// Métodos de pago disponibles
+export const metodsPago = [
+  {
+    id: 'credit-card',
+    nombre: 'Tarjeta de Crédito',
+    icono: 'bi-credit-card',
+    disponible: true
+  },
+  {
+    id: 'paypal',
+    nombre: 'PayPal',
+    icono: 'bi-paypal',
+    disponible: true
+  },
+  {
+    id: 'bank',
+    nombre: 'Transferencia Bancaria',
+    icono: 'bi-bank',
+    disponible: true
+  }
+];
+
+// Mensajes de la interfaz
+export const cartMessages = {
+  loading: 'Cargando tu carrito...',
+  emptyCart: {
+    title: 'Tu carrito está vacío',
+    description: 'Parece que aún no has añadido ningún producto a tu carrito.',
+    buttonText: 'Explorar productos'
+  },
+  buttons: {
+    continueShopping: 'Seguir comprando',
+    proceedPayment: 'Proceder al pago',
+    remove: 'Eliminar'
+  },
+  summary: {
+    title: 'Resumen de compra',
+    subtotal: 'Subtotal',
+    shipping: 'Envío',
+    total: 'Total',
+    freeShipping: 'Gratis'
+  }
 };
 
-export const ratingSummary = {
-  average: 4.7,
-  totalReviews: 28
-};
+// Productos adicionales para expandir el carrito (opcional)
+export const additionalCartItems = [
+  {
+    id: '2',
+    nombre_producto: 'Monopoly Clásico',
+    precio: 25.99,
+    cantidad: 1,
+    imagen: 'https://placehold.co/600x400/e74c3c/ffffff?text=Monopoly',
+    vendedor: 'Juan C.'
+  },
+  {
+    id: '3',
+    nombre_producto: 'Risk - Conquista Mundial',
+    precio: 35.50,
+    cantidad: 2,
+    imagen: 'https://placehold.co/600x400/f39c12/ffffff?text=Risk',
+    vendedor: 'Ana L.'
+  },
+  {
+    id: '5',
+    nombre_producto: 'Ticket to Ride',
+    precio: 42.99,
+    cantidad: 1,
+    imagen: 'https://placehold.co/600x400/3498db/ffffff?text=Ticket+to+Ride',
+    vendedor: 'Carlos M.'
+  }
+];
 
-// =============================
-// CONFIGURACIONES GENERALES
-// =============================
+// Función utilitaria para obtener carrito vacío
+export const getEmptyCart = () => [];
 
-export const currencySymbol = '€';
+// Función utilitaria para obtener carrito con datos de ejemplo
+export const getSampleCart = () => [...sampleCartItems];
 
-export const placeholderImages = {
-  avatar: (initials, color = '3498db') => `https://placehold.co/100/${color}/ffffff?text=${initials}`,
-  product: (text, color = '2c3e50') => `https://placehold.co/600x400/${color}/ffffff?text=${text}`
-};
+// Función utilitaria para obtener carrito completo (con productos adicionales)
+export const getFullSampleCart = () => [...sampleCartItems, ...additionalCartItems];
 
-export const apiEndpoints = {
-  search: '/api/search',
-  products: '/api/products',
-  messages: '/api/messages',
-  ratings: '/api/ratings',
-  conversations: '/api/messages/conversations'
-};
-
-export const loadingDelay = 800; // milliseconds
-
-// =============================
-// FUNCIONES HELPER
-// =============================
-
-export const createTimestamp = (minutesAgo) => {
-  return new Date(Date.now() - 1000 * 60 * minutesAgo);
-};
-
-export const generatePlaceholderImage = (text, bgColor = '2c3e50', textColor = 'ffffff') => {
-  return `https://placehold.co/600x400/${bgColor}/${textColor}?text=${encodeURIComponent(text)}`;
-};
-
-export const formatPrice = (price) => {
-  return `${price.toFixed(2)}${currencySymbol}`;
+// Exportación por defecto con todos los datos
+export default {
+  sampleCartItems,
+  additionalCartItems,
+  cartConfig,
+  metodsPago,
+  cartMessages,
+  // Funciones utilitarias
+  getEmptyCart,
+  getSampleCart,
+  getFullSampleCart
 };

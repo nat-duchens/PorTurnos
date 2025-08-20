@@ -280,7 +280,7 @@
     flex: initial;           /* <- IMPORTANTE: anula flex: 0 0 200px */
 }
 
-/* Colores de las tarjetas (mantén tus variables) */
+/* Colores de las tarjetas*/
 .equipo-card.azul { background-color: var(--color-azul); }
 .equipo-card.rosa { background-color: var(--color-rosa); }
 .equipo-card.verde { background-color: var(--color-verde); }
@@ -333,4 +333,107 @@
 
 /*===================================================================*/
 
-/*=================================================================*/
+/* Estilos para el marketplace de juegos usados */
+
+/* Estilos generales del marketplace */
+.marketplace-page .product-grid {
+  margin-top: 2rem;
+}
+
+.marketplace-page .filter-sidebar {
+  position: sticky;
+  top: 20px;
+}
+
+/* Efecto hover para las tarjetas de categorías */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Estilos para las tarjetas de productos */
+.product-card {
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card .card-img-container {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.product-card .card-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .card-img-container img {
+  transform: scale(1.05);
+}
+
+/* Badges y etiquetas */
+.condition-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+/* Estilos para la vista de lista */
+.list-view .product-card {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+
+.list-view .product-card .card-img-container {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+}
+
+.list-view .product-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Estilos para los filtros */
+.filter-group {
+  margin-bottom: 1.5rem;
+}
+
+.filter-group h5 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Estilos para el banner promocional */
+.banner-promocional {
+  background-color: #FFC107;
+  padding: 0.5rem 0;
+  color: #212529;
+}
+

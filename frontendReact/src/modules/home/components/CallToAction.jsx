@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { callToActionContent } from '../utils/dummyData';
 
 export default function CallToAction() {
@@ -9,8 +10,8 @@ export default function CallToAction() {
             <h2 className="fw-bold mb-4">{callToActionContent.title}</h2>
             <p className="lead mb-4">{callToActionContent.description}</p>
             <div className="d-flex justify-content-center gap-3">
-              <a href="/register" className="btn btn-warning btn-lg">Registrarse</a>
-              <a href="/login" className="btn btn-outline-light btn-lg">Iniciar sesión</a>
+              <NavLink to="/register" className="btn btn-warning btn-lg">Registrarse</NavLink>
+              <NavLink to="/login" className="btn btn-outline-light btn-lg">Iniciar sesión</NavLink>
             </div>
           </div>
         </div>

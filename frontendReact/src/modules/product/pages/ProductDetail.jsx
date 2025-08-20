@@ -81,6 +81,11 @@ export default function ProductDetail() {
   
   // Traducir completitud
   const translateCompleteness = (completeness) => {
+    const translations = {
+      'completo': 'Completo',
+      'falta-componentes': 'Faltan componentes',
+      'componentes-reemplazados': 'Componentes reemplazados'
+    };
     return completenessTranslations[completeness] || completeness;
   };
 
@@ -296,10 +301,10 @@ export default function ProductDetail() {
                 </div>
                 
                 <div className="d-grid gap-2">
-                  <button className="btn btn-primary btn-lg">
+                  <Link to="/cart" className="btn btn-primary btn-lg">
                     <i className="bi bi-cart-plus me-2"></i>
-                    {defaultMessages.buyNow}
-                  </button>
+                    Comprar ahora
+                  </Link>
                   <button 
                     className="btn btn-outline-primary" 
                     onClick={() => setShowContactForm(!showContactForm)}
