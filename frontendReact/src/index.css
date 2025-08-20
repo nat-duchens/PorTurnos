@@ -202,7 +202,7 @@
 }
 
 /*============================================================*/
-/* ---------- Estilos para los miebros del Equipo ---------- */
+/* ---------- Estilos para los miembros del Equipo ---------- */
 /*==========================================================*/
 
 /* Tarjetas de equipo */
@@ -233,7 +233,7 @@
 
 .equipo-card.amarillo {
     background-color: var(--color-amarillo);
-    color: #000;
+    color:  #0D1B1E;
 }
 
 /*===================================================*/

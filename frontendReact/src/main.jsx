@@ -11,8 +11,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 // Bootstrap Icons
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
-// Estilos personalizados para la landing page
+// Estilos personalizados
 import './assets/css/landing.css'
+import './assets/css/marketplace.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

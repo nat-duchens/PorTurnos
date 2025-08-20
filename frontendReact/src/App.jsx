@@ -40,6 +40,7 @@ export default function App() {
                         <Route path="/marketplace/messages" element={<MessageSystem />} />
                         <Route path="/marketplace/seller-dashboard" element={<SellerDashboard />} />
                         <Route path="/marketplace/notifications" element={<NotificationsPage />} />
+                      
                     </Route>
                 </Routes>
             </main>
@@ -47,6 +48,7 @@ export default function App() {
             <Footer />
         </div>
     )
+
 }
 
 function Layout() {

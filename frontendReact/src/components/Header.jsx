@@ -1,6 +1,6 @@
 // src/components/Header.jsx
 import { useState, useEffect } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import logo from '../assets/img/LogoPorTurnos.png'
 import NotificationSystem from './marketplace/NotificationSystem'
 
@@ -8,6 +8,8 @@ export default function Header() {
     // Estado para controlar si el usuario ha iniciado sesión
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [userName, setUserName] = useState('')
+    const [searchQuery, setSearchQuery] = useState('')
+    const navigate = useNavigate()
     
     // Simular verificación de inicio de sesión
     useEffect(() => {
@@ -47,12 +49,38 @@ export default function Header() {
                     </div>
 
                     <div className="col">
-                        <form role="search" onSubmit={(e) => e.preventDefault()}>
+                        <form role="search" onSubmit={(e) => {
+                            e.preventDefault();
+                            if (searchQuery.trim()) {
+                                navigate(`/marketplace?search=${encodeURIComponent(searchQuery)}`);
+                            }
+                        }}>
                             <div className="input-group pt-search">
-                                <input className="form-control" type="search" placeholder="Buscar juegos o artículos…" aria-label="Buscar" />
-                                <button className="btn btn-outline-dark" type="submit">
-                                    <i className="bi bi-search"></i>
-                                </button>
+                              <input
+                                className="form-control"
+                                type="search"
+                                placeholder="Buscar juegos o artículos…"
+                                aria-label="Buscar"
+                                value={searchQuery}
+                                onChange={e => setSearchQuery(e.target.value)}
+                                onKeyPress={e => {
+                                    if (e.key === 'Enter' && searchQuery.trim()) {
+                                        e.preventDefault();
+                                        navigate(`/marketplace?search=${encodeURIComponent(searchQuery)}`);
+                                    }
+                                }}
+                            />
+                            <button 
+                                className="btn btn-outline-dark" 
+                                type="submit"
+                                onClick={() => {
+                                    if (searchQuery.trim()) {
+                                        navigate(`/marketplace?search=${encodeURIComponent(searchQuery)}`);
+                                    }
+                                }}
+                            >
+                                <i className="bi bi-search"></i>
+                            </button>
                             </div>
                         </form>
                     </div>
