@@ -1,19 +1,16 @@
-#Para desarrollo local ( localhost, root)
-
 spring:
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password:  ${DB_PASSWORD}
-
+    url: ${DB_URL_PG}
+    username: ${DB_USERNAME_PG}
+    password: ${DB_PASSWORD_PG}
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: update # Modifica el schema para que coincida, sin borrar datos. En 'none' no toca el schema.
-    show-sql: true
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+      ddl-auto: update
+    show-sql: false
 
-  sql:
-    init:
-      mode: never # Para que no ejecute el script de schema.sql. En 'always' siempre ejecuta el script al iniciar.
-      schema-locations: classpath:schema.sql
+app:
+  security:
+    cors:
+      dev: false # Activa CORS restringido para React / producción

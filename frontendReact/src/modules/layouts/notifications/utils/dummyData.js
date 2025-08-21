@@ -1,4 +1,3 @@
-// /notifications/utils/dummyData.js
 
 // Mock de notificaciones para desarrollo y testing
 export const mockNotifications = [

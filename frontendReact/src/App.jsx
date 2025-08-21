@@ -1,31 +1,31 @@
 import { Routes, Route, Outlet } from 'react-router-dom'
-import Header from './modules/layouts/Header.jsx'
-import Footer from './modules/layouts/Footer.jsx'
-import Home from './modules/home/pages/Home.jsx'
-import Blog from './modules/blogs/components/Blog.jsx'
-import Post from './modules/blogs/pages/Post.jsx'
+import Header from './modules/layouts/Header'
+import Footer from './modules/layouts/Footer'
+import Home from './modules/home/pages/Home'
+import Blog from './modules/blogs/components/Blog'
+import Post from './modules/blogs/pages/Post'
 //Al añadir nuevas páginas se deben importar
 // Así como sus <Route path = .../>
-import Login from './modules/auth/pages/Login.jsx'
-import Register from './modules/auth/pages/Register.jsx'
-import ResetPassword from './modules/auth/components/ResetPassword.jsx'
-import Nosotros from "./modules/info/Nosotros.jsx"
-import Contacto from "./modules/info/Contacto.jsx"
-import Envios  from './modules/info/Envios.jsx'
-import Terminos from './modules/info/Terminos.jsx'
-import Conducta from './modules/info/Conducta.jsx'
-import Privacidad from './modules/info/Privacidad.jsx'
+import Login from './modules/auth/pages/Login'
+import Register from './modules/auth/pages/Register'
+import ResetPassword from './modules/auth/components/ResetPassword'
+import Nosotros from "./modules/info/Nosotros"
+import Contacto from "./modules/info/Contacto"
+import Envios  from './modules/info/Envios'
+import Terminos from './modules/info/Terminos'
+import Conducta from './modules/info/Conducta'
+import Privacidad from './modules/info/Privacidad'
 // Importaciones del marketplace
-import Marketplace from './modules/marketplace/pages/Marketplace.jsx'
-import ProductDetail from './modules/product/pages/ProductDetail.jsx'
-import PublishGameForm from './modules/seller/components/PublishGameForm.jsx'
-import MessageSystem from './modules/marketplace/components/MessageSystem.jsx'
-import SellerDashboard from './modules/seller/pages/sellerDashboard.jsx'
-import NotificationsPage from './modules/layouts/notifications/pages/NotificationsPage.jsx'
-import Cart from './modules/marketplace/pages/Cart.jsx'
+import Marketplace from './modules/marketplace/pages/Marketplace'
+import ProductDetail from './modules/product/pages/ProductDetail'
+import PublishGameForm from './modules/seller/components/PublishGameForm'
+import MessageSystem from './modules/marketplace/components/MessageSystem'
+import SellerDashboard from './modules/seller/pages/sellerDashboard'
+import NotificationsPage from './modules/layouts/notifications/pages/NotificationsPage'
+import Cart from './modules/marketplace/pages/Cart'
 // Importaciones de autenticación
-import { AuthProvider } from './modules/auth/context/AuthContext.jsx'
-import ProtectedRoute from './modules/auth/components/ProtectedRoute.jsx'
+import { AuthProvider } from './modules/auth/context/AuthContext'
+import ProtectedRoute from './modules/auth/components/ProtectedRoute'
 
 export default function App() {
     return (

@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/auth") // URL final con context-path /api -> /api/auth/...
+@RequestMapping("/api/auth") // URL final con context-path /api -> /api/auth/...
 @RequiredArgsConstructor
 public class AuthController {
 
@@ -26,13 +26,13 @@ public class AuthController {
     public record ClienteResponse(Long id, String email, String nombres, String apellidos) {}
     public record RegisterResponse(TokenResponse token, ClienteResponse cliente) {}
 
-    @PostMapping("/login")
+    @PostMapping("/api/login")
     public ResponseEntity<TokenResponse> login(@RequestBody LoginRequest req) {
         String token = authService.login(req.email(), req.password());
         return ResponseEntity.ok(new TokenResponse(token));
     }
 
-    @PostMapping("/register")
+    @PostMapping("/api/register")
     public ResponseEntity<RegisterResponse> register(@RequestBody RegisterRequest req) {
         var result = authService.register(req); // crea cliente + asigna rol + devuelve token
         return ResponseEntity.status(201).body(result);

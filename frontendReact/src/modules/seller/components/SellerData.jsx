@@ -1,5 +1,4 @@
 // Componente con la lógica de datos del vendedor
-// Ubicación: /seller/components/sellerData.jsx
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';

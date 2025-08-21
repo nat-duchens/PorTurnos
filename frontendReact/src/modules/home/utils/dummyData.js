@@ -1,5 +1,4 @@
 // Datos de ejemplo para los componentes de la página Home
-// Ubicación: /home/utils/dummyData.js
 
 export const featuredProducts = [
   {
