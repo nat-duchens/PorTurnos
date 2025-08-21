@@ -4,4 +4,4 @@ spring:
   application:
     name: tiendita
   profiles:
-    active: local # Cambia a 'Developer', 'Production' segun corresponda
+    active: prod # Cambia a 'Developer', 'Production' segun corresponda

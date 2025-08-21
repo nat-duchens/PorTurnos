@@ -51,7 +51,7 @@ public class ProductoController {
 
     // Paginación
     // Búsqueda por nombre
-    @GetMapping("/buscar")
+    @GetMapping("/api/buscar")
     public ResponseEntity<Page<Producto>> buscar(
             @RequestParam(name = "nombre_producto", defaultValue = "") String nombreProducto,
             @RequestParam(defaultValue = "0") int page,
@@ -70,7 +70,7 @@ public class ProductoController {
     }
 
     // Listado paginado genérico
-    @GetMapping("/pagina")
+    @GetMapping("/api/pagina")
     public ResponseEntity<Page<Producto>> paginar(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size,
@@ -87,7 +87,7 @@ public class ProductoController {
     }
 
     // Orden fijo por categoría (paginado)
-    @GetMapping("/ordenar")
+    @GetMapping("/api/ordenar")
     public ResponseEntity<Page<Producto>> ordenarPorCategoria(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size
