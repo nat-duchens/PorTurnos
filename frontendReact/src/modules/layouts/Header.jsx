@@ -15,6 +15,22 @@ export default function Header() {
     const [searchQuery, setSearchQuery] = useState('')
     const navigate = useNavigate()
     
+    // Función para navegar por categoría
+    const handleCategoryClick = (category) => {
+        navigate(`/marketplace?category=${encodeURIComponent(category)}`);
+    }
+
+    // Lista de categorías
+    const categories = [
+        'Estrategia',
+        'Familiar',
+        'Cartas',
+        'Rol',
+        'Wargames',
+        'Eurogames',
+        'Party',
+        'Cooperativos'
+    ]
     
     return (
         <header className="pt-header shadow-sm">
@@ -103,22 +119,17 @@ export default function Header() {
                                     Categorías
                                 </button>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Eurogames</a></li>
-                                    <li><a className="dropdown-item" href="#">Ameritrash</a></li>
-                                    <li><a className="dropdown-item" href="#">Fillers</a></li>
-                                    <li><a className="dropdown-item" href="#">Cooperativos</a></li>
-                                    <li><a className="dropdown-item" href="#">Miniaturas</a></li>
-                                    <li><a className="dropdown-item" href="#">Roles ocultos</a></li>
-                                    <li><a className="dropdown-item" href="#">Para dos</a></li>
-                                    <li><a className="dropdown-item" href="#">Solitario</a></li>
-                                    <li><a className="dropdown-item" href="#">WarGames</a></li>
-                                    <li><a className="dropdown-item" href="#">Legacy</a></li>
-                                    <li><a className="dropdown-item" href="#">Abstractos</a></li>
-                                    <li><a className="dropdown-item" href="#">Party Games</a></li>
-                                    <li><a className="dropdown-item" href="#">Juegos de Rol o JDR</a></li>
-                                    <li><a className="dropdown-item" href="#">Construcción de Mazos</a></li>
-                                    <li><a className="dropdown-item" href="#">CCG (Collective Card Game)</a></li>
-                                    <li><a className="dropdown-item" href="#">LCG (Living Card Game)</a></li>
+                                    {categories.map((category, index) => (
+                                        <li key={index}>
+                                            <button 
+                                                className="dropdown-item" 
+                                                onClick={() => handleCategoryClick(category)}
+                                                type="button"
+                                            >
+                                                {category}
+                                            </button>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                             <NavLink className="pt-navlink" to="/marketplace/publish">Vender juego</NavLink>

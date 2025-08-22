@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import ProductCard from '../../product/components/ProductCard';
 import ProductFilters from '../../product/components/ProductFilters';
-import { sampleProducts, defaultFilters, loadingDelay } from '../utils/dummyData';
+import { sampleProducts, defaultFilters, loadingDelay, categoryOptions } from '../utils/dummyData';
 
-export default function ProductGrid({ searchQuery = '' }) {
+export default function ProductGrid({ searchQuery = '', categoryFilter = '' }) {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,6 +40,29 @@ export default function ProductGrid({ searchQuery = '' }) {
     fetchProducts();
   }, []);
 
+  // Aplicar filtro de categoría desde URL cuando cambie categoryFilter
+  useEffect(() => {
+    if (categoryFilter) {
+      // Buscar el ID de la categoría basado en el nombre
+      const categoryOption = categoryOptions.find(
+        option => option.label.toLowerCase() === categoryFilter.toLowerCase()
+      );
+      
+      if (categoryOption) {
+        setActiveFilters(prev => ({
+          ...prev,
+          categories: [categoryOption.id]
+        }));
+      }
+    } else {
+      // Si no hay categoryFilter, limpiar las categorías en los filtros activos
+      setActiveFilters(prev => ({
+        ...prev,
+        categories: []
+      }));
+    }
+  }, [categoryFilter]);
+
   // Aplicar filtros cuando cambien
   useEffect(() => {
     if (products.length === 0) return;
@@ -55,6 +78,23 @@ export default function ProductGrid({ searchQuery = '' }) {
       );
     }
     
+    // Filtrar por categoría desde URL (tiene prioridad sobre filtros manuales)
+    if (categoryFilter) {
+      const categoryOption = categoryOptions.find(
+        option => option.label.toLowerCase() === categoryFilter.toLowerCase()
+      );
+      if (categoryOption) {
+        result = result.filter(product => 
+          product.category === categoryOption.id
+        );
+      }
+    } else if (activeFilters.categories.length > 0) {
+      // Solo aplicar filtros manuales si no hay filtro de URL
+      result = result.filter(product => 
+        activeFilters.categories.includes(product.category)
+      );
+    }
+    
     // Filtrar por rango de precio
     result = result.filter(product => 
       product.price >= activeFilters.priceRange.min && 
@@ -65,13 +105,6 @@ export default function ProductGrid({ searchQuery = '' }) {
     if (activeFilters.condition.length > 0) {
       result = result.filter(product => 
         activeFilters.condition.includes(product.condition)
-      );
-    }
-    
-    // Filtrar por categoría
-    if (activeFilters.categories.length > 0) {
-      result = result.filter(product => 
-        activeFilters.categories.includes(product.category)
       );
     }
     
@@ -104,7 +137,7 @@ export default function ProductGrid({ searchQuery = '' }) {
     }
     
     setFilteredProducts(result);
-  }, [products, activeFilters, searchQuery]);
+  }, [products, activeFilters, searchQuery, categoryFilter]);
 
   // Manejar cambios en los filtros
   const handleFilterChange = (newFilters) => {
@@ -124,7 +157,10 @@ export default function ProductGrid({ searchQuery = '' }) {
               <h5 className="mb-0">Filtros</h5>
             </div>
             <div className="card-body border">
-              <ProductFilters onFilterChange={handleFilterChange} />
+              <ProductFilters 
+                onFilterChange={handleFilterChange} 
+                initialCategory={categoryFilter}
+              />
             </div>
           </div>
         </div>
@@ -146,7 +182,11 @@ export default function ProductGrid({ searchQuery = '' }) {
             <div className="text-center py-5">
               <i className="bi bi-search display-1 text-muted"></i>
               <h4 className="mt-3">No se encontraron juegos</h4>
-              <p className="text-muted">Prueba a cambiar los filtros de búsqueda</p>
+              <p className="text-muted">
+                {searchQuery && `No hay resultados para "${searchQuery}"`}
+                {categoryFilter && !searchQuery && `No hay juegos en la categoría "${categoryFilter}"`}
+                {!searchQuery && !categoryFilter && "Prueba a cambiar los filtros de búsqueda"}
+              </p>
             </div>
           ) : (
             <>
@@ -155,7 +195,19 @@ export default function ProductGrid({ searchQuery = '' }) {
                 <div className="card-body py-2">
                   <div className="d-flex justify-content-between align-items-center">
                     <div>
-                      <p className="mb-0"><strong>{filteredProducts.length}</strong> resultados</p>
+                      <p className="mb-0">
+                        <strong>{filteredProducts.length}</strong> resultados
+                        {searchQuery && (
+                          <span className="text-muted ms-2">
+                            para "{searchQuery}"
+                          </span>
+                        )}
+                        {categoryFilter && (
+                          <span className="text-muted ms-2">
+                            en {categoryFilter}
+                          </span>
+                        )}
+                      </p>
                     </div>
                     <div className="d-flex align-items-center">
                       <span className="me-2 d-none d-md-inline">Ordenar por:</span>

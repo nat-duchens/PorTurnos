@@ -519,3 +519,14 @@ export default {
   getSampleCart,
   getFullSampleCart
 };
+
+export const categoryOptions = [
+  { id: 'estrategia', label: 'Estrategia' },
+  { id: 'familiar', label: 'Familiar' },
+  { id: 'cartas', label: 'Cartas' },
+  { id: 'rol', label: 'Rol' },
+  { id: 'wargames', label: 'Wargames' },
+  { id: 'eurogames', label: 'Eurogames' },
+  { id: 'party', label: 'Party' },
+  { id: 'cooperativos', label: 'Cooperativos' }
+];

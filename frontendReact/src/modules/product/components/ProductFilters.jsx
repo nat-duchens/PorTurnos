@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   conditionOptions, 
   categoryOptions, 
@@ -8,13 +8,41 @@ import {
   priceRangeConfig
 } from '../utils/dummyData';
 
-export default function ProductFilters({ onFilterChange }) {
+export default function ProductFilters({ onFilterChange, initialCategory = '' }) {
   // Estados para los diferentes filtros
   const [priceRange, setPriceRange] = useState(defaultFilters.priceRange);
   const [condition, setCondition] = useState(defaultFilters.condition);
   const [categories, setCategories] = useState(defaultFilters.categories);
   const [completeness, setCompleteness] = useState('all'); // Por defecto 'all' para el select
   const [sortBy, setSortBy] = useState(defaultFilters.sortBy);
+
+  // Efecto para aplicar la categoría inicial cuando se reciba desde la URL
+  useEffect(() => {
+    if (initialCategory) {
+      // Buscar el ID de la categoría basado en el nombre
+      const categoryOption = categoryOptions.find(
+        option => option.label.toLowerCase() === initialCategory.toLowerCase()
+      );
+      
+      if (categoryOption) {
+        const newCategories = [categoryOption.id];
+        setCategories(newCategories);
+        
+        // Aplicar automáticamente el filtro
+        const filters = {
+          priceRange,
+          condition,
+          categories: newCategories,
+          completeness: completeness === 'all' ? '' : completeness,
+          sortBy
+        };
+        onFilterChange(filters);
+      }
+    } else {
+      // Si no hay categoría inicial, resetear las categorías
+      setCategories(defaultFilters.categories);
+    }
+  }, [initialCategory]);
 
   // Manejadores de cambios en los filtros
   const handlePriceChange = (e, type) => {
@@ -82,6 +110,16 @@ export default function ProductFilters({ onFilterChange }) {
   return (
     <div className="product-filters bg-light p-4 rounded-3 shadow-sm mb-4">
       <h5 className="mb-3 border-bottom pb-2">Filtros</h5>
+      
+      {/* Mostrar categoría activa desde URL */}
+      {initialCategory && (
+        <div className="alert alert-info py-2 mb-3">
+          <small>
+            <i className="bi bi-tag me-1"></i>
+            Filtrando por: <strong>{initialCategory}</strong>
+          </small>
+        </div>
+      )}
       
       {/* Filtro de precio */}
       <div className="mb-4">

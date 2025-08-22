@@ -4,14 +4,25 @@ import ProductGrid from '../components/ProductGrid';
 
 export default function Marketplace() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('');
   const location = useLocation();
 
-  // Obtener el parámetro de búsqueda de la URL
+  // Obtener los parámetros de búsqueda y categoría de la URL
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const search = searchParams.get('search');
+    const category = searchParams.get('category');
+    
     if (search) {
       setSearchQuery(search);
+    } else {
+      setSearchQuery(''); // Limpiar búsqueda si no hay parámetro
+    }
+    
+    if (category) {
+      setCategoryFilter(category);
+    } else {
+      setCategoryFilter(''); // Limpiar categoría si no hay parámetro
     }
   }, [location.search]);
   
@@ -44,8 +55,37 @@ export default function Marketplace() {
         </div>
       </div>
       
+      {/* Mostrar indicador de filtro activo */}
+      {(searchQuery || categoryFilter) && (
+        <div className="container py-3">
+          <div className="alert alert-info d-flex align-items-center justify-content-between">
+            <div>
+              {searchQuery && (
+                <span className="me-3">
+                  <i className="bi bi-search me-1"></i>
+                  Buscando: <strong>{searchQuery}</strong>
+                </span>
+              )}
+              {categoryFilter && (
+                <span>
+                  <i className="bi bi-tag me-1"></i>
+                  Categoría: <strong>{categoryFilter}</strong>
+                </span>
+              )}
+            </div>
+            <Link to="/marketplace" className="btn btn-sm btn-outline-secondary">
+              <i className="bi bi-x-circle me-1"></i>
+              Limpiar filtros
+            </Link>
+          </div>
+        </div>
+      )}
+      
       {/* Contenido principal - Grid de productos */}
-      <ProductGrid searchQuery={searchQuery} />
+      <ProductGrid 
+        searchQuery={searchQuery} 
+        categoryFilter={categoryFilter}
+      />
       
       {/* Sección de información */}
       <section className="py-5 bg-light">
