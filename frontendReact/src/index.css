@@ -1,0 +1,423 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+/************ Las reglas del css son las mismas ************/
+
+/* Variables globales con el selector "root"
+   para refereir al elemento raiz del html
+   y en este caso definir colores*/
+:root {
+    --color-amarillo:#F1B23B;
+    --color-rosa:    #E83151;
+    --color-azul:    #4A8FE7;
+    --color-verde:   #63C841;
+    --color-negroA:  #0D1B1E;
+    --color-blanco:  #FFFFFF;
+
+    /* Colores para fondos */
+    --color-amarillo-claro: #ffe2a8;
+    --color-rosa-claro:     #e98596;
+    --color-azul-claro:     #92b7e7;
+    --color-verde-claro:    #a2da8f;
+    --color-blanco-amarillo:#fff7ea;
+    --color-blanco-azul:    #e9ecef;
+
+    /* Opcionales de diseño */
+    --radius: 12px;
+    --shadow-sm: 0 1px 6px rgba(13,27,30,.06);
+    --shadow-md: 0 6px 18px rgba(13,27,30,.12);
+}
+
+
+/*==========================================*/
+/*-------------Header y Footer-------------*/
+/*========================================*/
+
+/* Header y footer simples con la paleta Por Turnos */
+.pt-header{ background: var(--color-amarillo); color: var(--color-negroA); }
+.pt-subnav .pt-navlink{
+    color: var(--color-negroA);
+    text-decoration: none;
+    font-size: .95rem;
+}
+.pt-subnav .pt-navlink:hover{ text-decoration: underline; }
+
+/* Buscador */
+.pt-search .form-control{ background: #fff; border-color: rgba(0,0,0,.2); }
+.pt-search .btn{ border-color: rgba(0,0,0,.3); }
+
+/* Botón usuario (azul) */
+.btn-usuario{ background: var(--color-azul); color: #fff; }
+.btn-usuario:hover{ filter: brightness(1.05); color: #fff; }
+
+/* Footer */
+.pt-footer{ background: var(--color-amarillo); color: var(--color-negroA); }
+.pt-footlink{ color: var(--color-negroA); text-decoration: none; }
+.pt-footlink:hover{ text-decoration: underline; }
+.pt-social{ color: var(--color-negroA); }
+.pt-social:hover{ color: var(--color-rosa); }
+
+/* Estilos para la landing page de PORTURNOS */
+
+/* Estilos generales */
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+/* Estilos para las tarjetas de productos */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Estilos para el hero section */
+.bg-primary {
+  background-color: #2c3e50 !important;
+}
+
+.text-warning {
+  color: #f1c40f !important;
+}
+
+.btn-warning {
+  background-color: #f1c40f !important;
+  border-color: #f1c40f !important;
+}
+
+.btn-warning:hover {
+  background-color: #e2b607 !important;
+  border-color: #e2b607 !important;
+}
+
+/* Estilos para testimonios */
+.bi-star-fill {
+  color: #f1c40f !important;
+}
+
+/* Estilos para el newsletter */
+.form-control:focus {
+  border-color: var(--color-azul-claro);
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .feature-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+/*===============================================*/
+/*-------------Estilos para el Blog-------------*/
+/*=============================================*/
+
+/* Contenedor del blog */
+.blog-juegos{
+    background-color: var(--color-blanco); /* leve amarillo para diferenciar sección */
+    border: 1px solid var(--color-blanco-azul);
+    border-radius: var(--radius);
+    padding: 1rem;
+}
+
+/* Card del post en listado y sidebar */
+.juego_mesa{ /* deja el hitbox fijo */
+    position: relative;
+}
+
+.juego_mesa-inner{
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-blanco-azul);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--color-blanco);
+    /* sin transition: mantenlo simple */
+}
+
+/* Levante sutil, sin reflow ni parpadeo */
+.juego_mesa:hover .juego_mesa-inner{
+    transform: translate3d(0,-2px,0); /* mover el mismo elemento que es ancestro del stretched-link */
+    box-shadow: var(--shadow-md);
+    border-color: rgba(0,0,0,.06);
+    cursor: pointer;
+}
+
+/* Tipografía y espacios */
+.blog-juegos > h1{
+    margin: 0 0 .75rem 0;
+    padding: .25rem .5rem;
+    font-weight: 700;
+}
+.juego_mesa h2{
+    margin: 0 0 .25rem 0;
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
+.juego_mesa p{
+    margin: 0 0 .5rem 0;
+    font-size: .95rem;
+    color: #6c757d;
+}
+.juego_mesa ul{
+    margin: 0;
+    padding-left: 1.1rem;
+}
+.juego_mesa li{
+    margin: .15rem 0;
+}
+
+/* Imagen responsive con relación 16:9 */
+.ratio-16x9{
+    aspect-ratio:16/9;
+    width:100%;
+    display:block;
+    object-fit:cover;
+    background: var(--color-blanco-azul);
+}
+
+/* Utilitarios */
+.object-fit-cover{ object-fit:cover; }
+.text-rosa{ color: var(--color-rosa); }
+.bg-rosa-claro{ background: var(--color-rosa-claro); }
+
+/*=====================================================*/
+/*-------------Accesibilidad y responsivo-------------*/
+/*===================================================*/
+
+@media (hover: hover) and (pointer: fine){
+    .juego_mesa a.stretched-link:focus-visible,
+    .juego_mesa a:focus-visible{
+        outline: 3px solid var(--color-azul);
+        outline-offset: 2px;
+        border-radius: 6px;
+    }
+}
+
+@media (max-width: 575.98px){
+    .blog-juegos{ padding: .75rem; }
+    .juego_mesa h2{ font-size: 1rem; }
+    .juego_mesa p{ font-size: .9rem; }
+}
+
+@media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; }
+}
+
+/*=========================================================*/
+/* Título con gradiente simple (imagen + animación corta) */
+/*=======================================================*/
+
+.gradient-title{
+    background: url("https://img.freepik.com/fotos-premium/plantilla-banner-fondo-degradado-color-rosa-neon-naranja-amarillo_335640-4279.jpg") center;
+    background-size: cover;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-pan 10s linear infinite;
+}
+
+@keyframes gradient-pan{
+    to { background-position-x: -500px; }
+}
+
+/*===================================================*/
+/* ---------- Estilos (Login / Register) ---------- */
+/*=================================================*/
+
+.auth-card{
+    background: var(--color-blanco);
+    border: 1px solid var(--color-blanco-azul);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 1.25rem;
+    width: 100%;
+    max-width: 520px;      /* mismo tamaño para ambas */
+    margin: 0 auto;
+}
+
+/*============================================================*/
+/* ---------- Estilos para los miebros del Equipo ---------- */
+/*==========================================================*/
+/* Tarjetas de equipo (rectangulares y consistentes) */
+.equipo-card {
+    width: 260px;            /* -> ANCHO explícito */
+    max-width: 80vw;         /* por si la pantalla es muy angosta */
+    height: 64px;            /* -> BAJITA (rectángulo horizontal) */
+    text-align: center;
+    padding: 0 1rem;
+    border-radius: 12px;
+    color: #fff;
+    display: flex;
+    align-items: center;     /* centra vertical */
+    justify-content: center; /* centra horizontal */
+    font-weight: bold;
+    margin-top: 12px;        /* separa de la foto */
+    /* quita cualquier efecto anterior de flex-basis */
+    flex: initial;           /* <- IMPORTANTE: anula flex: 0 0 200px */
+}
+
+/* Colores de las tarjetas*/
+.equipo-card.azul { background-color: var(--color-azul); }
+.equipo-card.rosa { background-color: var(--color-rosa); }
+.equipo-card.verde { background-color: var(--color-verde); }
+.equipo-card.amarillo { background-color: var(--color-amarillo); color: #000; }
+
+/* Contenedor del equipo (distribución y centrado) */
+.equipo-container {
+    display: flex;
+    justify-content: space-around; /* reparte con espacio */
+    flex-wrap: wrap;
+    gap: 32px;                     /* un poco más de aire */
+    text-align: center;
+}
+
+/* Cada persona (foto arriba, tarjeta abajo) */
+.equipo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imagen redonda */
+.equipo-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Responsive suave */
+@media (max-width: 576px) {
+    .equipo-img { width: 120px; height: 120px; }
+    .equipo-card { width: 220px; height: 56px; }
+}
+
+/*===================================================================*/
+/* Ajusta botones del footer para que se vean como enlaces pequeños */
+/*=================================================================*/
+.footer-menus .btn-link.pt-footlink {
+    font-size: 0.875rem; /* igual que los enlaces pequeños */
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-menus .btn-link.pt-footlink:hover {
+    text-decoration: underline;
+}
+
+/*===================================================================*/
+
+/* Estilos para el marketplace de juegos usados */
+
+/* Estilos generales del marketplace */
+.marketplace-page .product-grid {
+  margin-top: 2rem;
+}
+
+.marketplace-page .filter-sidebar {
+  position: sticky;
+  top: 20px;
+}
+
+/* Efecto hover para las tarjetas de categorías */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Estilos para las tarjetas de productos */
+.product-card {
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card .card-img-container {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.product-card .card-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .card-img-container img {
+  transform: scale(1.05);
+}
+
+/* Badges y etiquetas */
+.condition-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+/* Estilos para la vista de lista */
+.list-view .product-card {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+
+.list-view .product-card .card-img-container {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+}
+
+.list-view .product-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Estilos para los filtros */
+.filter-group {
+  margin-bottom: 1.5rem;
+}
+
+.filter-group h5 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Estilos para el banner promocional */
+.banner-promocional {
+  background-color: #FFC107;
+  padding: 0.5rem 0;
+  color: #212529;
+}
+
