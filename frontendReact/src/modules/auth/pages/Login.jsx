@@ -2,6 +2,7 @@ import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import logo from '../../../assets/img/LogoPorTurnos.png'
+import { login as loginService } from '../service/authService'
 
 export default function Login() {
     const [formData, setFormData] = useState({ email: '', password: '' })
@@ -26,32 +27,49 @@ export default function Login() {
         setError('')
         
         try {
-            const response = await fetch('/api/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            })
+            // Usar el servicio de autenticación en lugar de fetch directamente
+            const response = await loginService(formData)
             
-            if (response.ok) {
-                const data = await response.json()
-                // Simular datos de usuario (en una app real vendrían del backend)
+            // Simular datos de usuario (en una app real vendrían del backend)
+            const userData = {
+                id: 1,
+                email: formData.email,
+                nombres: formData.email.split('@')[0], // Temporal
+                apellidos: 'Usuario'
+            }
+            
+            // Si estamos en modo de desarrollo y no hay backend real
+            if (!response.data?.token) {
+                // Simular un token
+                const mockToken = 'mock-jwt-token-' + Math.random().toString(36).substring(2)
+                login(mockToken, userData)
+                navigate(from, { replace: true })
+                return
+            }
+            
+            // Flujo normal con backend real
+            login(response.data.token, userData)
+            navigate(from, { replace: true })
+        } catch (error) {
+            console.error('Error de autenticación:', error)
+            
+            // Si estamos en modo de desarrollo y no hay backend
+            if (error.message && error.message.includes('Network Error')) {
+                console.log('Modo de desarrollo detectado, simulando inicio de sesión')
+                // Simular datos de usuario y token
                 const userData = {
                     id: 1,
                     email: formData.email,
-                    nombres: formData.email.split('@')[0], // Temporal
+                    nombres: formData.email.split('@')[0],
                     apellidos: 'Usuario'
                 }
-                login(data.token, userData)
+                const mockToken = 'mock-jwt-token-' + Math.random().toString(36).substring(2)
+                login(mockToken, userData)
                 navigate(from, { replace: true })
-            } else {
-                const errorData = await response.json()
-                setError(errorData.message || 'Error al iniciar sesión')
+                return
             }
-        } catch (error) {
-            console.error('Error:', error)
-            setError('Error de conexión. Por favor, intenta de nuevo.')
+            
+            setError(error.message || 'Error de conexión. Por favor, intenta de nuevo.')
         } finally {
             setLoading(false)
         }

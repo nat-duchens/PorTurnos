@@ -4,6 +4,7 @@ import Footer from './modules/layouts/Footer'
 import Home from './modules/home/pages/Home'
 import Blog from './modules/blogs/components/Blog'
 import Post from './modules/blogs/pages/Post'
+import AddBlogForm from './modules/blogs/components/AddBlogForm'
 //Al añadir nuevas páginas se deben importar
 // Así como sus <Route path = .../>
 import Login from './modules/auth/pages/Login'
@@ -38,6 +39,11 @@ export default function App() {
                         <Route element={<Layout />}>
                             <Route path="/" element={<Home />} />
                             <Route path="/blog" element={<Blog />} />
+                            <Route path="/blog/new" element={
+                                <ProtectedRoute>
+                                    <AddBlogForm />
+                                </ProtectedRoute>
+                            } />
                             <Route path="/blog/:slug" element={<Post />} />
                             <Route path="/login" element={<Login />} />
                             <Route path="/reset-password" element={<ResetPassword />} />

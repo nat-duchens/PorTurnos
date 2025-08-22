@@ -21,7 +21,7 @@ export default function Header() {
             {/* Banner promocional */}
         <div className="bg-dark py-2">
             <div className="container">
-            <div div className="d-flex align-items-center justify-content-center">
+            <div className="d-flex align-items-center justify-content-center">
                 <i className="bi bi-megaphone text-white me-2"></i>
                 <p className="mb-0 fw-bold text-white">¡Oferta especial de lanzamiento! Publica tu primer juego sin comisiones hasta fin de mes.</p>
             </div>

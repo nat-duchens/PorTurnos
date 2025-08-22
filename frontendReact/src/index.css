@@ -98,6 +98,10 @@
 .bg-negro {
   background-color: var(--color-negroA) !important;
 }
+
+.text-negro {
+  color: var(--color-negroA) !important;
+}
  
 .text-amarillo {
   color: var(--color-amarillo) !important;

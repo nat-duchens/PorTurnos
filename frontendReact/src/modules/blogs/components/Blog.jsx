@@ -1,14 +1,55 @@
 import { Link } from 'react-router-dom'
-import posts from '../utils/dummyData.js'
+import { useState, useEffect } from 'react'
+import { useAuth } from '../../auth/context/AuthContext'
+import { getAllBlogs } from '../service/blogService'
 
 export default function Blog() {
+    const { isAuthenticated } = useAuth()
+    const [posts, setPosts] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState('')
+    
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const blogsData = await getAllBlogs()
+                setPosts(blogsData)
+            } catch (err) {
+                setError('Error al cargar los blogs')
+                console.error('Error:', err)
+            } finally {
+                setLoading(false)
+            }
+        }
+        
+        fetchBlogs()
+    }, [])
     return (
         <section className="py-4">
             <div className="container">
                 <article className="blog-juegos p-3 rounded-3">
-                    <h1 className="h3 mb-3 gradient-blog">Blogs: Comunidad de Juegos de Mesa</h1>
+                    <div className="d-flex justify-content-between align-items-center mb-3">
+                        <h1 className="h3 mb-0 gradient-blog">Blogs: Comunidad de Juegos de Mesa</h1>
+                        {isAuthenticated && (
+                            <Link to="/blog/new" className="btn btn-outline-dark btn-rosa">
+                                <i className="bi bi-plus-circle me-1"></i> Nuevo Blog
+                            </Link>
+                        )}
+                    </div>
 
-                    <div className="row g-4">
+
+                    {loading ? (
+                        <div className="text-center py-5">
+                            <div className="spinner-border text-primary" role="status">
+                                <span className="visually-hidden">Cargando...</span>
+                            </div>
+                        </div>
+                    ) : error ? (
+                        <div className="alert alert-danger" role="alert">
+                            {error}
+                        </div>
+                    ) : (
+                        <div className="row g-4">
                         {posts.map(p => (
                             <div className="col-md-6" key={p.slug}>
                                 <article className="juego_mesa p-0 rounded-3 overflow-hidden h-100">
@@ -33,7 +74,8 @@ export default function Blog() {
                                 </article>
                             </div>
                         ))}
-                    </div>
+                        </div>
+                    )}
                 </article>
             </div>
         </section>
