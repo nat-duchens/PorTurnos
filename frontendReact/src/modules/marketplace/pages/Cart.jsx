@@ -113,8 +113,8 @@ export default function Cart() {
                       </div>
                     </div>
                     <div className="col-md-4 text-end">
-                      <p className="h5 mb-0">${(item.precio * item.cantidad).toFixed(2)}</p>
-                      <p className="text-muted small">${item.precio.toFixed(2)} por unidad</p>
+                      <p className="h5 mb-0">${(item.precio * item.cantidad).toLocaleString('es-CL')}</p>
+                      <p className="text-muted small">${item.precio.toLocaleString('es-CL')} por unidad</p>
                     </div>
                   </div>
                 ))}
@@ -137,7 +137,7 @@ export default function Cart() {
               <div className="card-body">
                 <div className="d-flex justify-content-between mb-2">
                   <span>{cartMessages.summary.subtotal}</span>
-                  <span>${calculateTotal().toFixed(2)}</span>
+                  <span>${calculateTotal().toLocaleString('es-CL')}</span>
                 </div>
                 <div className="d-flex justify-content-between mb-2">
                   <span>{cartMessages.summary.shipping}</span>
@@ -146,7 +146,7 @@ export default function Cart() {
                 <hr />
                 <div className="d-flex justify-content-between mb-4">
                   <span className="fw-bold">{cartMessages.summary.total}</span>
-                  <span className="fw-bold h5 mb-0">${calculateTotal().toFixed(2)}</span>
+                  <span className="fw-bold h5 mb-0">${calculateTotal().toLocaleString('es-CL')}</span>
                 </div>
                 
                 <div className="d-grid gap-2">

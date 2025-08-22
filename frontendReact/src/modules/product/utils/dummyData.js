@@ -5,13 +5,13 @@ export const sampleProduct = {
   id: '1',
   title: 'Catan - Edición Básica',
   description: 'Juego de mesa de estrategia y comercio. Apenas usado, en perfecto estado. Incluye todas las piezas originales y las reglas. La caja presenta algunos signos mínimos de desgaste en las esquinas, pero el contenido está como nuevo. Ideal para quienes quieren iniciarse en los juegos de mesa modernos.',
-  price: 35.99,
-  originalPrice: 49.99,
+  price: 30000,
+  originalPrice: 35000,
   category: 'estrategia',
   condition: 'como-nuevo',
   completeness: 'completo',
   images: [
-    'https://placehold.co/600x400/2c3e50/ffffff?text=Catan+1',
+    'https://www.updown.cl/wp-content/uploads/2024/09/standard_resolution-1587-600x400.jpg',
     'https://placehold.co/600x400/34495e/ffffff?text=Catan+2',
     'https://placehold.co/600x400/2980b9/ffffff?text=Catan+3',
     'https://placehold.co/600x400/3498db/ffffff?text=Catan+4'
@@ -51,28 +51,28 @@ export const relatedProducts = [
   {
     id: 1,
     title: 'Juego relacionado 1',
-    price: 25.00,
+    price: 25000,
     rating: 4.2,
     image: 'https://placehold.co/600x400/3498db/ffffff?text=Juego+1'
   },
   {
     id: 2,
     title: 'Juego relacionado 2',
-    price: 30.00,
+    price: 30000,
     rating: 4.4,
     image: 'https://placehold.co/600x400/2c3e50/ffffff?text=Juego+2'
   },
   {
     id: 3,
     title: 'Juego relacionado 3',
-    price: 35.00,
+    price: 35000,
     rating: 4.6,
     image: 'https://placehold.co/600x400/3498db/ffffff?text=Juego+3'
   },
   {
     id: 4,
     title: 'Juego relacionado 4',
-    price: 40.00,
+    price: 40000,
     rating: 4.8,
     image: 'https://placehold.co/600x400/2c3e50/ffffff?text=Juego+4'
   }
@@ -206,7 +206,7 @@ export const sortOptions = [
 
 // Configuración por defecto para filtros
 export const defaultFilters = {
-  priceRange: { min: 0, max: 200 },
+  priceRange: { min: 0, max: 200000 },
   condition: [],
   categories: [],
   completeness: '',

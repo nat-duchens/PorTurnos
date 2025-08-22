@@ -253,7 +253,7 @@ export default function PublishGameForm() {
                       name="price"
                       value={formData.price}
                       onChange={handleChange}
-                      placeholder="15000"
+                      placeholder="15.000"
                     />
                     {errors.price && <div className="invalid-feedback">{errors.price}</div>}
                   </div>
@@ -269,7 +269,7 @@ export default function PublishGameForm() {
                       name="originalPrice"
                       value={formData.originalPrice}
                       onChange={handleChange}
-                      placeholder="25000"
+                      placeholder="25.000"
                     />
                     {errors.originalPrice && <div className="invalid-feedback">{errors.originalPrice}</div>}
                     <div className="form-text">Opcional. Ayuda a mostrar el descuento.</div>

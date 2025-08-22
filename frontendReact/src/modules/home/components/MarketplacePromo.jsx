@@ -8,14 +8,14 @@ export default function MarketplacePromo() {
                 <div className="row align-items-center">
                     <div className="col-lg-6 mb-4 mb-lg-0">
                         <div className="p-4 bg-negro rounded-4 shadow-sm">
-                            <h2 className="display-6 fw-bold mb-3 text-white">Marketplace de Juegos Usados</h2>
+                            <h2 className="display-6 fw-bold mb-3 text-white">Tienda de Juegos Usados</h2>
                             <p className="lead mb-4 text-white">
                                 Compra y vende juegos de mesa de segunda mano en nuestra comunidad. 
                                 Encuentra ofertas increíbles o dale una segunda vida a tus juegos.
                             </p>
                             <div className="d-flex gap-3 flex-wrap">
                                 <Link to="/marketplace" className="btn btn-warning btn-lg">
-                                    Explorar Marketplace
+                                    Explorar Tienda
                                 </Link>
                                 <Link to="/marketplace/publish" className="btn btn-outline-light text-black btn-lg">
                                     Vender mi Juego
@@ -42,7 +42,7 @@ export default function MarketplacePromo() {
                             {marketplaceGames.map((game, index) => {
                                 const positions = [
                                     { top: '15%', left: '10%', zIndex: 1, transform: 'rotate(-5deg)', bg: 'bg-amarillo' },
-                                    { top: '5%', right: '15%', zIndex: 2, transform: 'rotate(3deg)', bg: 'bg-amarillo' },
+                                    { top: '5%', right: '-20%', zIndex: 2, transform: 'rotate(3deg)', bg: 'bg-amarillo' },
                                     { zIndex: 0, maxWidth: '80%', className: 'ms-auto bg-negro' }
                                 ];
                                 const position = positions[index];

@@ -6,7 +6,7 @@ export const featuredProducts = [
     name: "Catan",
     description: "El clásico juego de estrategia y comercio",
     price: 27500,
-    image: "https://placehold.co/300x300/e9ecef/495057?text=Catan",
+    image: "https://http2.mlstatic.com/D_Q_NP_2X_765178-MLB46093485949_052021-E.webp",
     category: "Estrategia"
   },
   {
@@ -14,7 +14,7 @@ export const featuredProducts = [
     name: "Pandemic",
     description: "Coopera para salvar al mundo de una pandemia global",
     price: 24000,
-    image: "https://placehold.co/300x300/e9ecef/495057?text=Pandemic",
+    image: "https://http2.mlstatic.com/D_Q_NP_2X_723741-MLA74780218229_022024-E.webp",
     category: "Cooperativo"
   },
   {
@@ -22,7 +22,7 @@ export const featuredProducts = [
     name: "Magic: The Gathering",
     description: "El juego de cartas coleccionables más popular",
     price: 18000,
-    image: "https://placehold.co/300x300/e9ecef/495057?text=Magic",
+    image: "https://http2.mlstatic.com/D_Q_NP_2X_956712-MLA83863312407_042025-E.webp",
     category: "Cartas"
   },
   {
@@ -30,7 +30,7 @@ export const featuredProducts = [
     name: "Gloomhaven",
     description: "Aventura épica de mazmorras y combate táctico",
     price: 78000,
-    image: "https://placehold.co/300x300/e9ecef/495057?text=Gloomhaven",
+    image: "https://http2.mlstatic.com/D_Q_NP_2X_960050-MLC32170308209_092019-E-juego-gloomhaven-en-espanol-oficial-diverti.webp",
     category: "Rol"
   }
 ];
@@ -70,7 +70,7 @@ export const featuredBlogs = [
     id: 1,
     title: "Los 5 mejores juegos de estrategia para principiantes",
     excerpt: "Descubre los juegos de mesa perfectos para iniciarte en el mundo de la estrategia sin complicaciones.",
-    image: "https://placehold.co/600x400/2c3e50/ffffff?text=Estrategia+Principiantes",
+    image: "https://konexionalzheimer.com/wp-content/uploads/2022/09/juegos-mesa-600x400.jpg",
     date: "15 Oct 2023",
     author: "María García",
     slug: "mejores-juegos-estrategia-principiantes",
@@ -80,7 +80,7 @@ export const featuredBlogs = [
     id: 2,
     title: "Guía completa: Cómo organizar un torneo de Magic",
     excerpt: "Todo lo que necesitas saber para organizar un torneo exitoso de Magic: The Gathering en tu comunidad local.",
-    image: "https://placehold.co/600x400/8e44ad/ffffff?text=Torneo+Magic",
+    image: "https://st4.depositphotos.com/20453466/27122/i/450/depositphotos_271229178-stock-photo-two-guys-are-playing-on.jpg",
     date: "28 Sep 2023",
     author: "Carlos Rodríguez",
     slug: "guia-organizar-torneo-magic",
@@ -90,7 +90,7 @@ export const featuredBlogs = [
     id: 3,
     title: "Juegos cooperativos: Fortaleciendo lazos familiares",
     excerpt: "Cómo los juegos cooperativos pueden mejorar la comunicación y fortalecer las relaciones familiares.",
-    image: "https://placehold.co/600x400/27ae60/ffffff?text=Juegos+Cooperativos",
+    image: "https://static.fnac-static.com/multimedia/Images/ES/Comete/1695/CCP_IMG_ORIGINAL/23700.jpg",
     date: "05 Oct 2023",
     author: "Ana Martínez",
     slug: "juegos-cooperativos-familia",
@@ -135,7 +135,7 @@ export const marketplaceGames = [
     price: 15000,
     originalPrice: 25000,
     condition: "Casi nuevo",
-    image: "https://via.placeholder.com/120x120",
+    image: "https://imagenes.espaciologopedico.com/tienda/59/8436589624559med.jpg",
     conditionColor: "success"
   },
   {
@@ -144,7 +144,7 @@ export const marketplaceGames = [
     price: 12000,
     originalPrice: 20000,
     condition: "Buen estado",
-    image: "https://via.placeholder.com/120x120",
+    image: "https://static.alipson.fr/asmodee.978/asmodee-puzzle-de-500-piezas-dixit-detours.458978-1.120.jpg",
     conditionColor: "warning"
   },
   {
@@ -153,7 +153,7 @@ export const marketplaceGames = [
     price: 18000,
     originalPrice: 30000,
     condition: "Como nuevo",
-    image: "https://via.placeholder.com/200x200",
+    image: "https://shop.imboardgames.com/cdn/shop/products/zm7101_box-left500_200x200.png?v=1601077039",
     conditionColor: "info"
   }
 ];

@@ -8,7 +8,7 @@ import {
   priceRangeConfig
 } from '../utils/dummyData';
 
-export default function ProductFilters({ onFilterChange, initialCategory = '' }) {
+export default function ProductFilters({ onFilterChange, initialCategory = '', productsLoaded = false }) {
   // Estados para los diferentes filtros
   const [priceRange, setPriceRange] = useState(defaultFilters.priceRange);
   const [condition, setCondition] = useState(defaultFilters.condition);
@@ -16,8 +16,11 @@ export default function ProductFilters({ onFilterChange, initialCategory = '' })
   const [completeness, setCompleteness] = useState('all'); // Por defecto 'all' para el select
   const [sortBy, setSortBy] = useState(defaultFilters.sortBy);
 
-  // Efecto para aplicar la categoría inicial cuando se reciba desde la URL
+  // Efecto para aplicar la categoría inicial cuando se reciba desde la URL y los productos estén cargados
   useEffect(() => {
+    // Solo aplicar filtros automáticamente cuando los productos estén cargados
+    if (!productsLoaded) return;
+    
     if (initialCategory) {
       // Buscar el ID de la categoría basado en el nombre
       const categoryOption = categoryOptions.find(
@@ -42,7 +45,7 @@ export default function ProductFilters({ onFilterChange, initialCategory = '' })
       // Si no hay categoría inicial, resetear las categorías
       setCategories(defaultFilters.categories);
     }
-  }, [initialCategory]);
+  }, [initialCategory, productsLoaded, priceRange, condition, completeness, sortBy]);
 
   // Manejadores de cambios en los filtros
   const handlePriceChange = (e, type) => {

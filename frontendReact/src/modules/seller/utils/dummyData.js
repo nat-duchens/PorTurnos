@@ -14,7 +14,7 @@ export const products = [
   { 
     id: 1, 
     title: 'Catan', 
-    price: 25, 
+    price: 25000, 
     condition: 'Casi nuevo', 
     status: 'active',
     views: 45,
@@ -25,7 +25,7 @@ export const products = [
   { 
     id: 2, 
     title: 'Pandemic', 
-    price: 32, 
+    price: 32000, 
     condition: 'Como nuevo', 
     status: 'active',
     views: 38,
@@ -36,7 +36,7 @@ export const products = [
   { 
     id: 3, 
     title: 'Dixit', 
-    price: 18, 
+    price: 18000, 
     condition: 'Buen estado', 
     status: 'sold',
     views: 62,
@@ -47,7 +47,7 @@ export const products = [
   { 
     id: 4, 
     title: 'Ticket to Ride', 
-    price: 28, 
+    price: 28000, 
     condition: 'Usado', 
     status: 'inactive',
     views: 12,
@@ -58,9 +58,9 @@ export const products = [
 ];
 
 export const orders = [
-  { id: 101, product: 'Dixit', buyer: 'Ana García', date: '15/06/2023', price: 18, status: 'completed' },
-  { id: 102, product: 'Monopoly', buyer: 'Carlos Ruiz', date: '02/07/2023', price: 15, status: 'shipped' },
-  { id: 103, product: 'Risk', buyer: 'Elena Martín', date: '10/07/2023', price: 22, status: 'pending' }
+  { id: 101, product: 'Dixit', buyer: 'Ana García', date: '15/06/2023', price: 18000, status: 'completed' },
+  { id: 102, product: 'Monopoly', buyer: 'Carlos Ruiz', date: '02/07/2023', price: 15000, status: 'shipped' },
+  { id: 103, product: 'Risk', buyer: 'Elena Martín', date: '10/07/2023', price: 22000, status: 'pending' }
 ];
 
 export const messages = [
@@ -71,8 +71,8 @@ export const messages = [
 ];
 
 export const earnings = {
-  total: 55,
-  pending: 22,
+  total: 55000,
+  pending: 22000,
   gamesSold: 3,
   averageRating: 4.8,
   monthly: [
@@ -80,9 +80,9 @@ export const earnings = {
     { month: 'Feb', amount: 0 },
     { month: 'Mar', amount: 0 },
     { month: 'Abr', amount: 0 },
-    { month: 'May', amount: 15 },
-    { month: 'Jun', amount: 18 },
-    { month: 'Jul', amount: 22 }
+    { month: 'May', amount: 15000 },
+    { month: 'Jun', amount: 18000 },
+    { month: 'Jul', amount: 22000 }
   ]
 };
 

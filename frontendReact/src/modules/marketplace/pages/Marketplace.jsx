@@ -83,6 +83,7 @@ export default function Marketplace() {
       
       {/* Contenido principal - Grid de productos */}
       <ProductGrid 
+        key={`${searchQuery}-${categoryFilter}`} // Forzar re-renderizado cuando cambian los filtros
         searchQuery={searchQuery} 
         categoryFilter={categoryFilter}
       />

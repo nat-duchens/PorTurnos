@@ -1,7 +1,6 @@
 import Hero from '../components/Hero'
 import Features from '../components/Features'
 import FeaturedProducts from '../components/FeaturedProducts'
-import RecommendedGamesCarousel from '../components/RecommendedGamesCarousel'
 import FeaturedBlogs from '../components/FeaturedBlogs'
 import Testimonials from '../components/Testimonials'
 import Newsletter from '../components/Newsletter'
@@ -14,7 +13,6 @@ export default function Home() {
             <Hero />
             <Features />
             <MarketplacePromo />
-            <RecommendedGamesCarousel />
             <FeaturedProducts />
             <FeaturedBlogs />
             <Testimonials />

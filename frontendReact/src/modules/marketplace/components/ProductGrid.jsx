@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import ProductCard from '../../product/components/ProductCard';
 import ProductFilters from '../../product/components/ProductFilters';
 import { sampleProducts, defaultFilters, loadingDelay, categoryOptions } from '../utils/dummyData';
@@ -16,29 +16,46 @@ export default function ProductGrid({ searchQuery = '', categoryFilter = '' }) {
     sortBy: 'newest'
   });
 
-  // Simular carga de datos
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setLoading(true);
-        // Aquí iría la llamada a la API real
-        // const response = await fetch('/api/products');
-        // const data = await response.json();
-        
-        // Simulamos un delay para la carga
-        await new Promise(resolve => setTimeout(resolve, 800));
-        
+  // Función para cargar productos usando useCallback para evitar recreaciones innecesarias
+  const fetchProducts = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null); // Limpiar errores anteriores
+      
+      // Aquí iría la llamada a la API real
+      // const response = await fetch('/api/products');
+      // const data = await response.json();
+      
+      // Simulamos un delay para la carga
+      await new Promise(resolve => setTimeout(resolve, 800));
+      
+      // Aseguramos que los productos se carguen correctamente
+      if (sampleProducts && sampleProducts.length > 0) {
         setProducts(sampleProducts);
         setFilteredProducts(sampleProducts);
-        setLoading(false);
-      } catch (err) {
-        setError('Error al cargar los productos');
-        setLoading(false);
+      } else {
+        // Si no hay productos, mostrar un error
+        setError('No se pudieron cargar los productos');
       }
-    };
-    
-    fetchProducts();
+    } catch (err) {
+      console.error('Error al cargar productos:', err);
+      setError('Error al cargar los productos');
+    } finally {
+      setLoading(false);
+    }
   }, []);
+  
+  // Efecto para cargar productos al montar el componente
+  useEffect(() => {
+    // Intentar cargar productos inmediatamente
+    fetchProducts();
+    
+    // Función de limpieza para evitar problemas de memoria
+    return () => {
+      setProducts([]);
+      setFilteredProducts([]);
+    };
+  }, [fetchProducts]);
 
   // Aplicar filtro de categoría desde URL cuando cambie categoryFilter
   useEffect(() => {
@@ -160,6 +177,7 @@ export default function ProductGrid({ searchQuery = '', categoryFilter = '' }) {
               <ProductFilters 
                 onFilterChange={handleFilterChange} 
                 initialCategory={categoryFilter}
+                productsLoaded={!loading && products.length > 0}
               />
             </div>
           </div>
@@ -177,6 +195,15 @@ export default function ProductGrid({ searchQuery = '', categoryFilter = '' }) {
           ) : error ? (
             <div className="alert alert-danger" role="alert">
               {error}
+              <div className="mt-3">
+                <button 
+                  className="btn btn-outline-danger" 
+                  onClick={fetchProducts}
+                >
+                  <i className="bi bi-arrow-clockwise me-2"></i>
+                  Reintentar cargar productos
+                </button>
+              </div>
             </div>
           ) : filteredProducts.length === 0 ? (
             <div className="text-center py-5">
@@ -187,6 +214,15 @@ export default function ProductGrid({ searchQuery = '', categoryFilter = '' }) {
                 {categoryFilter && !searchQuery && `No hay juegos en la categoría "${categoryFilter}"`}
                 {!searchQuery && !categoryFilter && "Prueba a cambiar los filtros de búsqueda"}
               </p>
+              <div className="mt-3">
+                <button 
+                  className="btn btn-warning" 
+                  onClick={fetchProducts}
+                >
+                  <i className="bi bi-arrow-clockwise me-2"></i>
+                  Recargar productos
+                </button>
+              </div>
             </div>
           ) : (
             <>
@@ -210,6 +246,13 @@ export default function ProductGrid({ searchQuery = '', categoryFilter = '' }) {
                       </p>
                     </div>
                     <div className="d-flex align-items-center">
+                      <button 
+                        className="btn btn-sm btn-outline-secondary me-2" 
+                        onClick={fetchProducts}
+                        title="Recargar productos"
+                      >
+                        <i className="bi bi-arrow-clockwise"></i>
+                      </button>
                       <span className="me-2 d-none d-md-inline">Ordenar por:</span>
                       <select 
                         className="form-select form-select-sm me-3" 

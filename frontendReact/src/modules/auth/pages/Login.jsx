@@ -13,7 +13,7 @@ export default function Login() {
     const location = useLocation()
     
     // Cambiar la ruta de destino por defecto
-    const from = location.state?.from?.pathname || '/dashboard' // o la ruta principal de tu app
+    const from = location.state?.from?.pathname || '/' // o la ruta principal de tu app
     
     const handleChange = (e) => {
         setFormData({
