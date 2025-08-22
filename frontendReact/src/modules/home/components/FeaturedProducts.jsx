@@ -5,7 +5,7 @@ export default function FeaturedProducts() {
   return (
     <section className="py-5 bg-light" id="productos">
       <div className="container py-4">
-        <div className="text-center mb-5">
+        <div className="text-center mb-5 border rounded p-3">
           <h2 className="fw-bold">Productos Destacados</h2>
           <p className="lead text-secondary">Los juegos más populares de nuestra tienda</p>
         </div>

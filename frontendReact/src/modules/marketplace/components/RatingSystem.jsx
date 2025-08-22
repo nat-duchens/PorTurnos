@@ -82,7 +82,7 @@ export default function RatingSystem({ type = 'product', itemId, initialRating =
                       className={`bi ${(hoverRating || rating) >= starIndex ? 'bi-star-fill' : 'bi-star'} fs-3`}
                       style={{ 
                         cursor: readOnly ? 'default' : 'pointer',
-                        color: (hoverRating || rating) >= starIndex ? '#ffc107' : '#ccc'
+                        color: (hoverRating || rating) >= starIndex ? 'var(--color-amarillo)' : 'var(--color-blanco)'
                       }}
                       onMouseOver={() => handleMouseOver(starIndex)}
                       onMouseOut={() => setHoverRating(0)}

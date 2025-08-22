@@ -19,14 +19,14 @@ export default function Header() {
     return (
         <header className="pt-header shadow-sm">
             {/* Banner promocional */}
-      <div className="bg-dark py-2">
-        <div className="container">
-          <div className="d-flex align-items-center justify-content-center">
-            <i className="bi bi-megaphone me-2"></i>
-            <p className="mb-0 fw-bold text-white">¡Oferta especial de lanzamiento! Publica tu primer juego sin comisiones hasta fin de mes.</p>
-          </div>
+        <div className="bg-dark py-2">
+            <div className="container">
+            <div div className="d-flex align-items-center justify-content-center">
+                <i className="bi bi-megaphone text-white me-2"></i>
+                <p className="mb-0 fw-bold text-white">¡Oferta especial de lanzamiento! Publica tu primer juego sin comisiones hasta fin de mes.</p>
+            </div>
         </div>
-      </div>
+        </div>
             <div className="container py-2">
                 {/* Fila 1: Logo + Buscador + Usuario */}
                 <div className="row align-items-center">
@@ -59,7 +59,7 @@ export default function Header() {
                                 }}
                             />
                             <button 
-                                className="btn btn-outline-dark" 
+                                className="btn btn-outline-dark text-white" 
                                 type="submit"
                                 onClick={() => {
                                     if (searchQuery.trim()) {
@@ -77,7 +77,7 @@ export default function Header() {
                         {isAuthenticated ? (
                             <a href="#" className="btn btn-usuario rounded-3 px-3">{user}</a>
                         ) : (
-                            <NavLink to="/login" className="btn btn-outline-primary rounded-3 px-3">Iniciar sesión</NavLink>
+                            <NavLink to="/login" className="btn btn-outline-dark text-white rounded-3 px-3">Iniciar sesión</NavLink>
                         )}
                     </div>
                 </div>

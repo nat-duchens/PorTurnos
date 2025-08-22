@@ -20,7 +20,7 @@ import Marketplace from './modules/marketplace/pages/Marketplace'
 import ProductDetail from './modules/product/pages/ProductDetail'
 import PublishGameForm from './modules/seller/components/PublishGameForm'
 import MessageSystem from './modules/marketplace/components/MessageSystem'
-import SellerDashboard from './modules/seller/pages/sellerDashboard'
+import SellerDashboard from './modules/seller/pages/SellerDashboards'
 import NotificationsPage from './modules/layouts/notifications/pages/NotificationsPage'
 import Cart from './modules/marketplace/pages/Cart'
 // Importaciones de autenticación

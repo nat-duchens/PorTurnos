@@ -14,7 +14,7 @@ export default function Features() {
             <div className="col-md-6 col-lg-4" key={feature.id}>
               <div className="card h-100 border-0 shadow-sm">
                 <div className="card-body text-center p-4">
-                  <div className="feature-icon bg-primary bg-gradient text-white rounded-circle mb-3">
+                  <div className="feature-icon bg-negro bg-gradient text-white rounded-circle mb-3">
                     <i className={`bi ${feature.icon} fs-2 p-3`}></i>
                   </div>
                   <h5 className="card-title">{feature.title}</h5>

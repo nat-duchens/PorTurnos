@@ -1,8 +1,8 @@
 // Página principal del Panel de Vendedor
 
-import SellerData from '../components/sellerData';
+import SellerData from '../components/SellerInfo';
 
-export default function SellerDashboard() {
+export default function SellerDashboards() {
   const {
     renderSellerProfile,
     renderTabs,

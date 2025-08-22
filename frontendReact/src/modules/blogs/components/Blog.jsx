@@ -6,7 +6,7 @@ export default function Blog() {
         <section className="py-4">
             <div className="container">
                 <article className="blog-juegos p-3 rounded-3">
-                    <h1 className="h3 mb-3 gradient-title">Blogs: Comunidad de Juegos de Mesa</h1>
+                    <h1 className="h3 mb-3 gradient-blog">Blogs: Comunidad de Juegos de Mesa</h1>
 
                     <div className="row g-4">
                         {posts.map(p => (

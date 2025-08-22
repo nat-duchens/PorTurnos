@@ -3,15 +3,15 @@ import { heroContent } from '../utils/dummyData';
 
 export default function Hero() {
   return (
-      <section className="bg-primary text-white py-5 border-bottom">
+      <section className="bg-negro text-white py-5 border-bottom">
         <div className="container py-5">
           <div className="row align-items-center g-4">
             <div className="col-lg-7">
-              <h1 className="display-4 fw-bold">Bienvenido a <span className="text-warning">PORTURNOS</span></h1>
+              <h1 className="display-4 fw-bold">Bienvenido a <span className="text-amarillo">PORTURNOS</span></h1>
               <p className="lead mb-4">{heroContent.subtitle}</p>
               <div className="d-flex gap-3">
                 <NavLink to="/marketplace" className="btn btn-warning btn-lg">Explorar productos</NavLink>
-                <NavLink to="/nosotros" className="btn btn-outline-light btn-lg">Conoce más</NavLink>
+                <NavLink to="/nosotros" className="btn btn-outline-light btn-lg text-black">Conoce más</NavLink>
               </div>
             </div>
             <div className="col-lg-5">

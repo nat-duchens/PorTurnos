@@ -7,32 +7,32 @@ export default function MarketplacePromo() {
             <div className="container">
                 <div className="row align-items-center">
                     <div className="col-lg-6 mb-4 mb-lg-0">
-                        <div className="p-4 bg-white rounded-4 shadow-sm">
-                            <h2 className="display-6 fw-bold mb-3">Marketplace de Juegos Usados</h2>
-                            <p className="lead mb-4">
+                        <div className="p-4 bg-negro rounded-4 shadow-sm">
+                            <h2 className="display-6 fw-bold mb-3 text-white">Marketplace de Juegos Usados</h2>
+                            <p className="lead mb-4 text-white">
                                 Compra y vende juegos de mesa de segunda mano en nuestra comunidad. 
                                 Encuentra ofertas increíbles o dale una segunda vida a tus juegos.
                             </p>
                             <div className="d-flex gap-3 flex-wrap">
-                                <Link to="/marketplace" className="btn btn-primary btn-lg">
+                                <Link to="/marketplace" className="btn btn-warning btn-lg">
                                     Explorar Marketplace
                                 </Link>
-                                <Link to="/marketplace/publish" className="btn btn-outline-primary btn-lg">
+                                <Link to="/marketplace/publish" className="btn btn-outline-light text-black btn-lg">
                                     Vender mi Juego
                                 </Link>
                             </div>
                             <div className="mt-4 d-flex gap-4">
                                 <div>
-                                    <span className="d-block h3 mb-0 fw-bold">{marketplaceStats.availableGames}</span>
-                                    <small className="text-muted">Juegos disponibles</small>
+                                    <span className="d-block h3 mb-0 fw-bold text-white">{marketplaceStats.availableGames}</span>
+                                    <small className="text-white ">Juegos disponibles</small>
                                 </div>
                                 <div>
-                                    <span className="d-block h3 mb-0 fw-bold">{marketplaceStats.activeSellers}</span>
-                                    <small className="text-muted">Vendedores activos</small>
+                                    <span className="d-block h3 mb-0 fw-bold text-white">{marketplaceStats.activeSellers}</span>
+                                    <small className="text-white">Vendedores activos</small>
                                 </div>
                                 <div>
-                                    <span className="d-block h3 mb-0 fw-bold">{marketplaceStats.successfulTransactions}</span>
-                                    <small className="text-muted">Transacciones exitosas</small>
+                                    <span className="d-block h3 mb-0 fw-bold text-white">{marketplaceStats.successfulTransactions}</span>
+                                    <small className="text-white">Transacciones exitosas</small>
                                 </div>
                             </div>
                         </div>
@@ -41,16 +41,16 @@ export default function MarketplacePromo() {
                         <div className="position-relative">
                             {marketplaceGames.map((game, index) => {
                                 const positions = [
-                                    { top: '15%', left: '10%', zIndex: 1, transform: 'rotate(-5deg)', bg: 'bg-primary' },
-                                    { top: '5%', right: '15%', zIndex: 2, transform: 'rotate(3deg)', bg: 'bg-success' },
-                                    { zIndex: 0, maxWidth: '80%', className: 'ms-auto bg-warning' }
+                                    { top: '15%', left: '10%', zIndex: 1, transform: 'rotate(-5deg)', bg: 'bg-amarillo' },
+                                    { top: '5%', right: '15%', zIndex: 2, transform: 'rotate(3deg)', bg: 'bg-amarillo' },
+                                    { zIndex: 0, maxWidth: '80%', className: 'ms-auto bg-negro' }
                                 ];
                                 const position = positions[index];
                                 
                                 return (
                                     <div 
                                         key={game.id}
-                                        className={`${position.bg || 'bg-warning'} rounded-4 p-3 ${index < 2 ? 'position-absolute' : position.className || ''}`}
+                                        className={`${position.bg || 'bg-amarillo'} rounded-4 p-3 ${index < 2 ? 'position-absolute' : position.className || ''}`}
                                         style={{
                                             top: position.top,
                                             left: position.left,
