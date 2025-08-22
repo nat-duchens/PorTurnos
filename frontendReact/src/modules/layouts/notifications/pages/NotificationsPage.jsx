@@ -89,7 +89,7 @@ export default function NotificationsPage() {
                     <div className="d-flex align-items-center gap-2">
                         <h1 className="h3 mb-0">Notificaciones</h1>
                         {unreadCount > 0 && (
-                            <span className="badge bg-danger rounded-pill">{unreadCount}</span>
+                            <span className="badge bg-amarillo text-black rounded-pill">{unreadCount}</span>
                         )}
                     </div>
                 </div>
@@ -97,7 +97,7 @@ export default function NotificationsPage() {
                     <div className="d-flex gap-2 flex-wrap">
                         {unreadCount > 0 && (
                             <button 
-                                className="btn btn-outline-primary btn-sm"
+                                className="btn btn-outline-dark text-white btn-sm"
                                 onClick={markAllAsRead}
                                 title="Marcar todas como leídas"
                             >
@@ -128,7 +128,7 @@ export default function NotificationsPage() {
                         {notificationFilters.map(filterOption => (
                             <button 
                                 key={filterOption.key}
-                                className={`btn btn-sm ${filter === filterOption.key ? 'btn-primary' : 'btn-outline-primary'}`}
+                                className={`btn btn-sm ${filter === filterOption.key ? 'btn-outline-dark text-white' : 'btn-warning text-black'}`}
                                 onClick={() => setFilter(filterOption.key)}
                             >
                                 {filterOption.label}
@@ -157,12 +157,12 @@ export default function NotificationsPage() {
                             return (
                                 <div 
                                     key={notification.id} 
-                                    className={`list-group-item position-relative ${!notification.read ? 'bg-light border-start border-primary border-3' : ''}`}
+                                    className={`list-group-item position-relative ${!notification.read ? 'bg-light border-start border-dark border-4 mt-2' : 'mt-2'}`}
                                 >
                                     {/* Indicador de no leída */}
                                     {!notification.read && (
                                         <div 
-                                            className="position-absolute top-0 end-0 mt-2 me-2 bg-primary rounded-circle"
+                                            className="position-absolute top-0 end-0 mt-2 me-2 bg-amarillo rounded-circle"
                                             style={{ width: '8px', height: '8px' }}
                                             title="Notificación no leída"
                                         ></div>
@@ -226,14 +226,14 @@ export default function NotificationsPage() {
                                             <div className="d-flex gap-2 flex-wrap">
                                                 <Link 
                                                     to={notification.link} 
-                                                    className="btn btn-sm btn-primary"
+                                                    className="btn btn-sm btn-warning text-black"
                                                 >
                                                     <i className="bi bi-arrow-right me-1"></i>
                                                     Ver detalles
                                                 </Link>
                                                 {!notification.read && (
                                                     <button 
-                                                        className="btn btn-sm btn-outline-secondary"
+                                                        className="btn btn-sm btn-outline-dark text-white"
                                                         onClick={() => markAsRead(notification.id)}
                                                     >
                                                         <i className="bi bi-check me-1"></i>

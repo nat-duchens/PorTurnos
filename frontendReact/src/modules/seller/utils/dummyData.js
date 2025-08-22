@@ -118,7 +118,7 @@ export const tabsConfig = [
     key: 'messages',
     label: 'Mensajes',
     icon: 'bi-chat',
-    badge: { count: 2, class: 'bg-danger' }
+    badge: { count: 2, class: 'bg-amarillo text-black' }
   },
   {
     key: 'earnings',

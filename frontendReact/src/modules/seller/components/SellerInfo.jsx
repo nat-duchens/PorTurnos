@@ -57,7 +57,7 @@ export default function SellerData() {
             </div>
           </div>
           <div className="ms-auto">
-            <button className="btn btn-outline-primary">
+            <button className="btn btn-outline-dark text-white">
               <i className="bi bi-pencil me-2"></i>{uiMessages.editProfile}
             </button>
           </div>
@@ -75,7 +75,8 @@ export default function SellerData() {
             className={`nav-link ${activeTab === tab.key ? 'active' : ''}`}
             onClick={() => setActiveTab(tab.key)}
           >
-            <i className={`bi ${tab.icon} me-2`}></i>{tab.label}
+            <span className="text-black">
+            <i className={`bi text-black ${tab.icon} me-2`}></i>{tab.label}</span>
             {tab.badge && (
               <span className={`badge ${tab.badge.class} ms-2`}>
                 {tab.badge.count}
@@ -92,7 +93,7 @@ export default function SellerData() {
     <div className="tab-pane fade show active">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h3>{tabTitles.products}</h3>
-        <Link to="/marketplace/publish" className="btn btn-primary">
+        <Link to="/marketplace/publish" className="btn btn-warning">
           <i className="bi bi-plus-lg me-2"></i>{uiMessages.publishNewGame}
         </Link>
       </div>
@@ -150,13 +151,13 @@ export default function SellerData() {
                 </td>
                 <td>
                   <div className="btn-group">
-                    <button className="btn btn-sm btn-outline-secondary">
+                    <button className="btn btn-sm btn-outline-dark text-white">
                       <i className="bi bi-pencil"></i>
                     </button>
                     <button className="btn btn-sm btn-outline-danger">
                       <i className="bi bi-trash"></i>
                     </button>
-                    <Link to={`/marketplace/product/${product.id}`} className="btn btn-sm btn-outline-primary">
+                    <Link to={`/marketplace/product/${product.id}`} className="btn btn-sm btn-warning">
                       <i className="bi bi-eye"></i>
                     </Link>
                   </div>
@@ -197,7 +198,7 @@ export default function SellerData() {
                   </span>
                 </td>
                 <td>
-                  <button className="btn btn-sm btn-outline-primary">
+                  <button className="btn btn-sm btn-outline-dark text-white">
                     <i className="bi bi-info-circle me-1"></i>{uiMessages.details}
                   </button>
                 </td>
@@ -220,13 +221,13 @@ export default function SellerData() {
             <div>
               <div className="d-flex align-items-center">
                 <h6 className="mb-0">{message.from}</h6>
-                {!message.read && <span className="badge bg-primary ms-2">{uiMessages.newMessage}</span>}
+                {!message.read && <span className="badge bg-warning text-black ms-2">{uiMessages.newMessage}</span>}
               </div>
               <p className="mb-1">{message.subject}</p>
               <small className="text-muted">{message.date}</small>
             </div>
             <div>
-              <Link to="/marketplace/messages" className="btn btn-sm btn-outline-primary">
+              <Link to="/marketplace/messages" className="btn btn-sm btn-warning text-black">
                 <i className="bi bi-chat-dots me-1"></i>{uiMessages.respond}
               </Link>
             </div>
@@ -277,7 +278,7 @@ export default function SellerData() {
   // Renderizar gráfico de ganancias mensuales
   const renderEarningsChart = () => (
     <div className="card">
-      <div className="card-header bg-white">
+      <div className="card-header bg-negro text-white">
         <h5 className="mb-0">{uiMessages.monthlyEarnings}</h5>
       </div>
       <div className="card-body">
@@ -286,7 +287,7 @@ export default function SellerData() {
             {earnings.monthly.map((month, index) => (
               <div key={index} className="d-flex flex-column align-items-center" style={{ width: `${100 / earnings.monthly.length}%` }}>
                 <div 
-                  className="bg-primary rounded-top" 
+                  className="bg-amarillo rounded-top" 
                   style={{ 
                     width: chartConfig.barWidthPercentage, 
                     height: `${(month.amount / getMaxEarnings()) * 200}px`,

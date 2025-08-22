@@ -10,7 +10,7 @@ export default function FeaturedBlogs() {
             <h2 className="fw-bold mb-1">Blog <span className="text-amarillo">PORTURNOS</span></h2>
             <p className="lead text-secondary">Artículos, guías y noticias del mundo de los juegos</p>
           </div>
-          <Link to="/blog" className="btn btn-warning-white">Ver todos los artículos</Link>
+          <Link to="/blog" className="btn btn-outline-dark text-white">Ver todos los artículos</Link>
         </div>
         
         <div className="row g-4">
@@ -44,7 +44,7 @@ export default function FeaturedBlogs() {
         <div className="text-center mt-5">
           <div className="d-inline-block bg-white p-3 rounded-3 shadow-sm">
             <p className="mb-2 fw-bold">¿Quieres estar al día con las últimas novedades?</p>
-            <Link to="/blog" className="btn btn-warning-white">
+            <Link to="/blog" className="btn btn-outline-dark text-white">
               Suscríbete a nuestro blog <i className="bi bi-journal-text ms-1"></i>
             </Link>
           </div>

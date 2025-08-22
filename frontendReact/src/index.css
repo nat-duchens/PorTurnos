@@ -36,6 +36,11 @@
 /*========================================*/
 
 /* Header y footer simples con la paleta Por Turnos */
+
+#busqueda-header::placeholder {
+    color: var(--color-negroA) !important;
+}
+
 .pt-header{ background: var(--color-amarillo); color: var(--color-negroA); }
 .pt-subnav .pt-navlink{
     color: var(--color-negroA);
@@ -62,6 +67,33 @@
 /* Estilos para la landing page de PORTURNOS */
 
 /* Estilos generales */
+
+.text-verde {
+  color: var(--color-verde-oscuro);
+}
+
+#mensajeria {
+  border-color: var(--color-negroA) !important;
+}
+
+#mensajeria::placeholder {
+  color: var(--color-negroA) !important;
+}
+
+.form-control {
+  border-color: var(--color-amarillo) !important;
+}
+
+.form-control:focus {
+  border-color: var(--color-azul-claro) !important;
+  box-shadow: 0 0 0 0.25rem rgba(241, 178, 59, 0.25) !important; /* amarillo con transparencia */
+}
+
+.form-control::placeholder {
+  color: var(--color-amarillo-claro) !important;
+  opacity: 1 !important;
+}
+
 .feature-icon {
   display: inline-flex;
   align-items: center;
@@ -131,6 +163,20 @@
   box-shadow: 0 5px 5px rgba(0,0,0,0.3);
 }
 
+.btn-outline-danger {
+  background-color: var(--color-rosa) !important;
+  border-color: var(--color-rosa-claro) !important;
+  color: var(--color-blanco) !important;
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--color-rosa) !important;
+  border-color: var(--color-rosa-claro) !important;
+  color: var(--color-blanco);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+}
+
 .btn-outline-login:hover {
   background-color: transparent !important;
   border-color: var(--color-blanco) !important;
@@ -168,8 +214,40 @@ input[type="range"]::-webkit-slider-thumb {
   box-shadow: 0 0 0 0.15rem var(--color-amarillo)!important;
 }
 
+/* Estado base (sin checkear) */
 .form-check-input {
-  border: var(--color-negroA) !important;
+  border: 2px solid var(--color-amarillo) !important;
+  background-color: transparent !important;
+}
+
+/* Estado hover (sin checkear) */
+.form-check-input:not(:checked):hover {
+  border-color: var(--color-amarillo-oscuro) !important;
+}
+
+/* Estado checkeado */
+.form-check-input:checked {
+  background-color: var(--color-negroA) !important; 
+  border-color: var(--color-negroA) !important;
+  box-shadow: none !important;
+}
+
+/* Estado hover cuando está checkeado */
+.form-check-input:checked:hover {
+  background-color: var(--color-negroA) !important;
+  border-color: var(--color-negroA) !important;
+}
+
+/* Estado focus */
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.15rem var(--color-amarillo) !important;
+  border-color: var(--color-amarillo) !important;
+}
+
+/* Estado focus cuando está checkeado */
+.form-check-input:checked:focus {
+  box-shadow: 0 0 0 0.15rem var(--color-amarillo) !important;
+  border-color: var(--color-negroA) !important;
 }
 
 .btn-warning:hover {

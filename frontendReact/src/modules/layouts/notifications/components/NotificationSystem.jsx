@@ -130,7 +130,7 @@ export default function NotificationSystem() {
                                     >
                                         <div className="d-flex">
                                             <div className="me-3">
-                                                <div className={`notification-icon bg-${getNotificationColor(notification.type)} text-white rounded-circle d-flex align-items-center justify-content-center`} style={{ width: '40px', height: '40px' }}>
+                                                <div className={`notification-icon bg-amarillo text-black rounded-circle d-flex align-items-center justify-content-center`} style={{ width: '40px', height: '40px' }}>
                                                     <i className={`bi ${getNotificationIcon(notification.type)}`}></i>
                                                 </div>
                                             </div>

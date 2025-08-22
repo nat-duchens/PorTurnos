@@ -158,7 +158,7 @@ export default function ProductDetail() {
                     </span>
                     
                     {calculateDiscount() && (
-                      <span className="badge bg-danger">
+                      <span className="badge bg-negro">
                         {calculateDiscount()}% DESCUENTO
                       </span>
                     )}
@@ -230,7 +230,7 @@ export default function ProductDetail() {
                     )}
                   </div>
                   {calculateDiscount() && (
-                    <div className="text-danger">
+                    <div className="text-verde">
                       Ahorras: ${(product.originalPrice - product.price).toLocaleString('es-CL')} CLP ({calculateDiscount()}%)
                     </div>
                   )}
@@ -246,27 +246,27 @@ export default function ProductDetail() {
                     <h5>Detalles</h5>
                     <ul className="list-unstyled">
                       <li className="mb-2">
-                        <i className={`bi ${sectionIcons.players} me-2 text-primary`}></i>
+                        <i className={`bi ${sectionIcons.players} me-2 text-amarillo`}></i>
                         <strong>Jugadores:</strong> {product.details.players}
                       </li>
                       <li className="mb-2">
-                        <i className={`bi ${sectionIcons.playTime} me-2 text-primary`}></i>
+                        <i className={`bi ${sectionIcons.playTime} me-2 text-amarillo`}></i>
                         <strong>Duración:</strong> {product.details.playTime}
                       </li>
                       <li className="mb-2">
-                        <i className={`bi ${sectionIcons.age} me-2 text-primary`}></i>
+                        <i className={`bi ${sectionIcons.age} me-2 text-amarillo`}></i>
                         <strong>Edad:</strong> {product.details.age}
                       </li>
                       <li className="mb-2">
-                        <i className={`bi ${sectionIcons.language} me-2 text-primary`}></i>
+                        <i className={`bi ${sectionIcons.language} me-2 text-amarillo`}></i>
                         <strong>Idioma:</strong> {product.details.language}
                       </li>
                       <li className="mb-2">
-                        <i className={`bi ${sectionIcons.publisher} me-2 text-primary`}></i>
+                        <i className={`bi ${sectionIcons.publisher} me-2 text-amarillo`}></i>
                         <strong>Editorial:</strong> {product.details.publisher}
                       </li>
                       <li>
-                        <i className={`bi ${sectionIcons.releaseYear} me-2 text-primary`}></i>
+                        <i className={`bi ${sectionIcons.releaseYear} me-2 text-amarillo`}></i>
                         <strong>Año:</strong> {product.details.releaseYear}
                       </li>
                     </ul>
@@ -276,37 +276,37 @@ export default function ProductDetail() {
                     <ul className="list-unstyled">
                       {product.shipping.methods.includes('envio') && (
                         <li className="mb-2">
-                          <i className={`bi ${sectionIcons.shipping} me-2 text-primary`}></i>
+                          <i className={`bi ${sectionIcons.shipping} me-2 text-amarillo`}></i>
                           <strong>Envío:</strong> ${product.shipping.cost.toLocaleString('es-CL')} CLP
                         </li>
                       )}
                       {product.shipping.methods.includes('recogida') && (
                         <li className="mb-2">
-                          <i className={`bi ${sectionIcons.pickup} me-2 text-primary`}></i>
+                          <i className={`bi ${sectionIcons.pickup} me-2 text-amarillo`}></i>
                           <strong>Recogida en persona:</strong> {product.seller.location}
                         </li>
                       )}
                       <li>
-                        <i className={`bi ${sectionIcons.delivery} me-2 text-primary`}></i>
+                        <i className={`bi ${sectionIcons.delivery} me-2 text-amarillo`}></i>
                         <strong>Entrega estimada:</strong> {product.shipping.estimatedDelivery}
                       </li>
                     </ul>
                     
                     <h5 className="mt-3">Publicado</h5>
                     <p>
-                      <i className={`bi ${sectionIcons.published} me-2 text-primary`}></i>
+                      <i className={`bi ${sectionIcons.published} me-2 text-amarillo`}></i>
                       {formatDate(product.createdAt)}
                     </p>
                   </div>
                 </div>
                 
                 <div className="d-grid gap-2">
-                  <Link to="/cart" className="btn btn-primary btn-lg">
+                  <Link to="/cart" className="btn btn-warning btn-lg">
                     <i className="bi bi-cart-plus me-2"></i>
                     Comprar ahora
                   </Link>
                   <button 
-                    className="btn btn-outline-primary" 
+                    className="btn btn-outline-dark text-white" 
                     onClick={() => setShowContactForm(!showContactForm)}
                   >
                     <i className="bi bi-chat-dots me-2"></i>
@@ -383,26 +383,26 @@ export default function ProductDetail() {
                 <div className="row">
                   <div className="col-md-6">
                     <div className="mb-2">
-                      <i className={`bi ${sectionIcons.location} me-2 text-primary`}></i>
+                      <i className={`bi ${sectionIcons.location} me-2 text-amarillo`}></i>
                       <strong>Ubicación:</strong> {product.seller.location}
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="mb-2">
-                      <i className={`bi ${sectionIcons.responseRate} me-2 text-primary`}></i>
+                      <i className={`bi ${sectionIcons.responseRate} me-2 text-amarillo`}></i>
                       <strong>Tasa de respuesta:</strong> {product.seller.responseRate}%
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div>
-                      <i className={`bi ${sectionIcons.responseTime} me-2 text-primary`}></i>
+                      <i className={`bi ${sectionIcons.responseTime} me-2 text-amarillo`}></i>
                       <strong>Tiempo de respuesta:</strong> {product.seller.responseTime}
                     </div>
                   </div>
                 </div>
                 
                 <div className="mt-3 text-center">
-                  <Link to={`/seller/${product.seller.id}`} className="btn btn-outline-primary">
+                  <Link to={`/seller/${product.seller.id}`} className="btn btn-outline-dark text-white">
                     <i className="bi bi-shop me-2"></i>
                     Ver perfil del vendedor
                   </Link>
@@ -416,7 +416,7 @@ export default function ProductDetail() {
         <div className="row mt-4">
           <div className="col-12">
             <div className="card shadow-sm">
-              <div className="card-header bg-light">
+              <div className="card-header bg-negro text-white">
                 <h4 className="mb-0">Valoraciones y opiniones</h4>
               </div>
               <div className="card-body">
@@ -450,7 +450,7 @@ export default function ProductDetail() {
                     </div>
                   </div>
                   <div className="card-footer bg-white">
-                    <Link to="#" className="btn btn-outline-primary w-100">Ver detalles</Link>
+                    <Link to="#" className="btn btn-outline-dark text-white w-100">Ver detalles</Link>
                   </div>
                 </div>
               </div>

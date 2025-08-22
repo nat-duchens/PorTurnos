@@ -89,7 +89,7 @@ export default function AddBlogForm() {
                             <label htmlFor="title" className="form-label">Título</label>
                             <input
                                 type="text"
-                                className="form-control"
+                                className="form-control bg-negro text-white"
                                 id="title"
                                 name="title"
                                 value={formData.title}
@@ -103,7 +103,7 @@ export default function AddBlogForm() {
                             <label htmlFor="excerpt" className="form-label">Resumen breve</label>
                             <input
                                 type="text"
-                                className="form-control"
+                                className="form-control bg-negro text-white"
                                 id="excerpt"
                                 name="excerpt"
                                 value={formData.excerpt}
@@ -117,7 +117,7 @@ export default function AddBlogForm() {
                             <label htmlFor="image" className="form-label">URL de la imagen</label>
                             <input
                                 type="url"
-                                className="form-control"
+                                className="form-control bg-negro text-white"
                                 id="image"
                                 name="image"
                                 value={formData.image}
@@ -131,7 +131,7 @@ export default function AddBlogForm() {
                         <div className="mb-3">
                             <label htmlFor="content" className="form-label">Contenido</label>
                             <textarea
-                                className="form-control"
+                                className="form-control bg-negro text-white"
                                 id="content"
                                 name="content"
                                 value={formData.content}
@@ -148,7 +148,7 @@ export default function AddBlogForm() {
                                 <input
                                     key={index}
                                     type="text"
-                                    className="form-control mb-2"
+                                    className="form-control mb-2 bg-negro text-white"
                                     name={`bullet${index}`}
                                     value={bullet}
                                     onChange={handleChange}
@@ -160,16 +160,8 @@ export default function AddBlogForm() {
 
                         <div className="d-flex justify-content-between">
                             <button 
-                                type="button" 
-                                className="btn btn-outline-secondary"
-                                onClick={() => navigate('/blog')}
-                                disabled={loading}
-                            >
-                                Cancelar
-                            </button>
-                            <button 
                                 type="submit" 
-                                className="btn btn-outline-dark btn-rosa"
+                                className="btn btn-warning"
                                 disabled={loading}
                             >
                                 {loading ? (
@@ -180,6 +172,14 @@ export default function AddBlogForm() {
                                 ) : (
                                     'Publicar Blog'
                                 )}
+                            </button>
+                            <button 
+                                type="button" 
+                                className="btn btn-outline-danger text-white"
+                                onClick={() => navigate('/blog')}
+                                disabled={loading}
+                            >
+                                Cancelar
                             </button>
                         </div>
                     </form>

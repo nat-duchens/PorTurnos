@@ -45,6 +45,7 @@ export default function Header() {
                         }}>
                             <div className="input-group pt-search">
                               <input
+                                id='busqueda-header'
                                 className="form-control"
                                 type="search"
                                 placeholder="Buscar juegos o artículos…"
@@ -75,7 +76,17 @@ export default function Header() {
 
                     <div className="col-auto d-none d-md-block">
                         {isAuthenticated ? (
-                            <a href="#" className="btn btn-usuario rounded-3 px-3">{user}</a>
+                            <div className="dropdown">
+                                <button className="btn btn-outline-dark text-white rounded-3 px-3 dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    {user?.nombres} {user?.apellidos}
+                                </button>
+                                <ul className="dropdown-menu">
+                                    <li><span className="dropdown-item-text">{user?.email}</span></li>
+                                 <li><hr className="dropdown-divider" /></li>
+                                    <li><a className="dropdown-item" href="/profile">Mi Perfil</a></li>
+                                    <li><a className="dropdown-item" href="#" onClick={handleLogout}>Cerrar Sesión</a></li>
+                                </ul>
+                            </div>
                         ) : (
                             <NavLink to="/login" className="btn btn-outline-dark text-white rounded-3 px-3">Iniciar sesión</NavLink>
                         )}

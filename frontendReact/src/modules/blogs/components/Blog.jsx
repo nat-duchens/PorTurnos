@@ -31,7 +31,7 @@ export default function Blog() {
                     <div className="d-flex justify-content-between align-items-center mb-3">
                         <h1 className="h3 mb-0 gradient-blog">Blogs: Comunidad de Juegos de Mesa</h1>
                         {isAuthenticated && (
-                            <Link to="/blog/new" className="btn btn-outline-dark btn-rosa">
+                            <Link to="/blog/new" className="btn btn-outline-dark text-white">
                                 <i className="bi bi-plus-circle me-1"></i> Nuevo Blog
                             </Link>
                         )}

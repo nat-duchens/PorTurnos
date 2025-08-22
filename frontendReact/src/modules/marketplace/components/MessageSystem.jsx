@@ -121,7 +121,7 @@ export default function MessageSystem() {
   return (
     <div className="container py-4">
       <div className="card shadow-sm">
-        <div className="card-header bg-primary text-white">
+        <div className="card-header bg-negro text-white">
           <h4 className="mb-0">Mensajes</h4>
         </div>
         <div className="card-body p-0">
@@ -130,7 +130,7 @@ export default function MessageSystem() {
             <div className="col-md-4 border-end">
               <div className="p-3 border-bottom d-flex justify-content-between align-items-center">
                 <h5 className="mb-0">Conversaciones</h5>
-                <span className="badge bg-primary rounded-pill">
+                <span className="badge bg-amarillo rounded-pill">
                   {conversations.filter(c => !c.lastMessage.isRead && c.lastMessage.sender !== 'currentUser').length}
                 </span>
               </div>
@@ -236,7 +236,7 @@ export default function MessageSystem() {
                       </div>
                     </div>
                     <div className="ms-auto">
-                      <button className="btn btn-outline-primary btn-sm">
+                      <button className="btn btn-outline-dark text-white btn-sm">
                         <i className="bi bi-info-circle me-1"></i>
                         Ver perfil
                       </button>
@@ -260,7 +260,7 @@ export default function MessageSystem() {
                         style={{ maxWidth: '75%' }}
                       >
                         <div 
-                          className={`p-3 rounded ${msg.sender === 'currentUser' ? 'bg-primary text-white' : 'bg-light'}`}
+                          className={`p-3 rounded ${msg.sender === 'currentUser' ? 'bg-amarillo text-negro' : 'bg-negro text-white'}`}
                         >
                           {msg.text}
                         </div>
@@ -272,9 +272,10 @@ export default function MessageSystem() {
                   </div>
                   
                   {/* Formulario para enviar mensaje */}
-                  <div className="p-3 border-top">
+                  <div className="p-2 border-top">
                     <form onSubmit={handleSendMessage} className="d-flex">
                       <input 
+                        id='mensajeria'
                         type="text" 
                         className="form-control me-2" 
                         placeholder="Escribe un mensaje..." 
@@ -283,7 +284,7 @@ export default function MessageSystem() {
                       />
                       <button 
                         type="submit" 
-                        className="btn btn-primary" 
+                        className="btn btn-warning" 
                         disabled={!message.trim()}
                       >
                         <i className="bi bi-send"></i>

@@ -1,4 +1,4 @@
-// src/services/api.js
+// src/service/api.js
 import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_BACKEND_API;
@@ -10,10 +10,9 @@ const api = axios.create({
 // Interceptor para agregar el token a cada solicitud
 api.interceptors.request.use(
   (config) => {
-    const storedUserData =
-      JSON.parse(localStorage.getItem('userData')) ||
-      JSON.parse(sessionStorage.getItem('userData'));
-    const token = storedUserData ? storedUserData.token : null;
+    // CORREGIDO: Buscar el token donde lo guarda AuthContext
+    const token = localStorage.getItem('userToken'); // Directamente el token
+    
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
@@ -29,8 +28,9 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
-      // Limpiar el token del almacenamiento y redirigir al login
+      // Limpiar AMBOS tokens del almacenamiento
       localStorage.removeItem('userData');
+      localStorage.removeItem('userToken'); // AÑADIDO
       sessionStorage.removeItem('userData');
       window.location.href = '/login';
     }

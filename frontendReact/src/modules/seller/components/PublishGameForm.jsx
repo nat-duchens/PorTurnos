@@ -150,10 +150,10 @@ export default function PublishGameForm() {
       <div className="row justify-content-center">
         <div className="col-lg-8">
           <div className="card shadow-sm">
-            <div className="card-header bg-primary text-white">
+            <div className="card-header bg-negro text-white">
               <h3 className="mb-0">Publicar juego usado</h3>
             </div>
-            <div className="card-body">
+            <div className="card-body bg-amarillo">
               {errors.submit && (
                 <div className="alert alert-danger">{errors.submit}</div>
               )}
@@ -165,7 +165,7 @@ export default function PublishGameForm() {
                   <label htmlFor="title" className="form-label">Título del juego *</label>
                   <input
                     type="text"
-                    className={`form-control ${errors.title ? 'is-invalid' : ''}`}
+                    className={`bg-negro text-white form-control ${errors.title ? 'is-invalid' : ''}`}
                     id="title"
                     name="title"
                     value={formData.title}
@@ -178,7 +178,7 @@ export default function PublishGameForm() {
                 <div className="mb-3">
                   <label htmlFor="description" className="form-label">Descripción *</label>
                   <textarea
-                    className={`form-control ${errors.description ? 'is-invalid' : ''}`}
+                    className={`bg-negro text-white form-control ${errors.description ? 'is-invalid' : ''}`}
                     id="description"
                     name="description"
                     rows="4"
@@ -194,7 +194,7 @@ export default function PublishGameForm() {
                   <div className="col-md-6 mb-3">
                     <label htmlFor="category" className="form-label">Categoría *</label>
                     <select
-                      className={`form-select ${errors.category ? 'is-invalid' : ''}`}
+                      className={`bg-negro text-white form-select ${errors.category ? 'is-invalid' : ''}`}
                       id="category"
                       name="category"
                       value={formData.category}
@@ -210,7 +210,7 @@ export default function PublishGameForm() {
                   <div className="col-md-6 mb-3">
                     <label htmlFor="condition" className="form-label">Estado *</label>
                     <select
-                      className={`form-select ${errors.condition ? 'is-invalid' : ''}`}
+                      className={`bg-negro text-white form-select ${errors.condition ? 'is-invalid' : ''}`}
                       id="condition"
                       name="condition"
                       value={formData.condition}
@@ -227,7 +227,7 @@ export default function PublishGameForm() {
                 <div className="mb-3">
                   <label htmlFor="completeness" className="form-label">Completitud del juego *</label>
                   <select
-                    className="form-select"
+                    className="form-select bg-negro text-white"
                     id="completeness"
                     name="completeness"
                     value={formData.completeness}
@@ -248,7 +248,7 @@ export default function PublishGameForm() {
                       type="number"
                       step="1"
                       min="0"
-                      className={`form-control ${errors.price ? 'is-invalid' : ''}`}
+                      className={`bg-negro text-white form-control ${errors.price ? 'is-invalid' : ''}`}
                       id="price"
                       name="price"
                       value={formData.price}
@@ -264,7 +264,7 @@ export default function PublishGameForm() {
                       type="number"
                       step="1"
                       min="0"
-                      className={`form-control ${errors.originalPrice ? 'is-invalid' : ''}`}
+                      className={`bg-negro text-white form-control ${errors.originalPrice ? 'is-invalid' : ''}`}
                       id="originalPrice"
                       name="originalPrice"
                       value={formData.originalPrice}
@@ -282,7 +282,7 @@ export default function PublishGameForm() {
                   <label htmlFor="images" className="form-label">Fotos del juego *</label>
                   <input
                     type="file"
-                    className={`form-control ${errors.images ? 'is-invalid' : ''}`}
+                    className={`bg-negro text-white form-control ${errors.images ? 'is-invalid' : ''}`}
                     id="images"
                     name="images"
                     accept="image/*"
@@ -320,7 +320,7 @@ export default function PublishGameForm() {
                   <label htmlFor="location" className="form-label">Ubicación *</label>
                   <input
                     type="text"
-                    className={`form-control ${errors.location ? 'is-invalid' : ''}`}
+                    className={`bg-negro text-white form-control ${errors.location ? 'is-invalid' : ''}`}
                     id="location"
                     name="location"
                     value={formData.location}
@@ -382,16 +382,10 @@ export default function PublishGameForm() {
                 
                 {/* Botones */}
                 <div className="d-flex justify-content-between">
-                  <button 
-                    type="button" 
-                    className="btn btn-outline-secondary" 
-                    onClick={() => navigate('/marketplace')}
-                  >
-                    Cancelar
-                  </button>
+                  
                   <button 
                     type="submit" 
-                    className="btn btn-primary" 
+                    className="btn btn-outline-dark text-white" 
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -400,6 +394,13 @@ export default function PublishGameForm() {
                         Publicando...
                       </>
                     ) : 'Publicar juego'}
+                  </button>
+                  <button 
+                    type="button" 
+                    className="btn btn-outline-danger text-white" 
+                    onClick={() => navigate('/marketplace')}
+                  >
+                    Cancelar
                   </button>
                 </div>
               </form>

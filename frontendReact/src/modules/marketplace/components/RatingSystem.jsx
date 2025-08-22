@@ -66,14 +66,14 @@ export default function RatingSystem({ type = 'product', itemId, initialRating =
       {/* Sección para dejar una valoración */}
       {!readOnly && !submitted && (
         <div className="card shadow-sm mb-4">
-          <div className="card-header bg-light">
+          <div className="card-header bg-amarillo">
             <h5 className="mb-0">
               {type === 'product' ? 'Valorar este producto' : 'Valorar a este vendedor'}
             </h5>
           </div>
-          <div className="card-body">
+          <div className="card-body bg-negro">
             <form onSubmit={handleSubmit}>
-              <div className="mb-3 text-center">
+              <div className="mb-3 text-center text-white">
                 <p className="mb-2">¿Cómo valorarías {type === 'product' ? 'este producto' : 'a este vendedor'}?</p>
                 <div className="stars d-flex justify-content-center gap-1 mb-2">
                   {[1, 2, 3, 4, 5].map((starIndex) => (
@@ -106,12 +106,11 @@ export default function RatingSystem({ type = 'product', itemId, initialRating =
               </div>
               
               <div className="mb-3">
-                <label htmlFor="comment" className="form-label">Tu comentario (opcional)</label>
+                <label htmlFor="comment" className="form-label text-white">Tu comentario (opcional)</label>
                 <textarea 
                   className="form-control" 
                   id="comment" 
                   rows="3"
-                  placeholder={`Cuéntanos tu experiencia con ${type === 'product' ? 'este producto' : 'este vendedor'}...`}
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
                 ></textarea>
@@ -120,7 +119,7 @@ export default function RatingSystem({ type = 'product', itemId, initialRating =
               <div className="text-end">
                 <button 
                   type="submit" 
-                  className="btn btn-primary" 
+                  className="btn btn-warning" 
                   disabled={rating === 0 || loading}
                 >
                   {loading ? (
@@ -227,7 +226,7 @@ export default function RatingSystem({ type = 'product', itemId, initialRating =
         ))}
         
         <div className="text-center mt-4">
-          <button className="btn btn-outline-primary">
+          <button className="btn btn-outline-dark text-white">
             Ver todas las valoraciones
           </button>
         </div>
