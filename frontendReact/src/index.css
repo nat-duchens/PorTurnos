@@ -68,6 +68,10 @@
 
 /* Estilos generales */
 
+.form-label-negro {
+  border-color: var(--color-negroA) !important;
+}
+
 .text-verde {
   color: var(--color-verde-oscuro);
 }
@@ -81,7 +85,7 @@
 }
 
 .form-control {
-  border-color: var(--color-amarillo) !important;
+  border-color: var(--color-negroA) !important;
 }
 
 .form-control:focus {
@@ -90,7 +94,7 @@
 }
 
 .form-control::placeholder {
-  color: var(--color-amarillo-claro) !important;
+  color: #6c757d !important; 
   opacity: 1 !important;
 }
 
