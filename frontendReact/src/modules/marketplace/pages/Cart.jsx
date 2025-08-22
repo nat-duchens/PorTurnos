@@ -98,14 +98,14 @@ export default function Cart() {
                     <div className="col-md-2 text-center">
                       <div className="d-flex align-items-center justify-content-center">
                         <button 
-                          className="btn btn-sm btn-outline-secondary"
+                          className="btn btn-sm btn-outline-dark text-white"
                           onClick={() => updateQuantity(item.id, item.cantidad - 1)}
                         >
                           <i className="bi bi-dash"></i>
                         </button>
                         <span className="mx-2">{item.cantidad}</span>
                         <button 
-                          className="btn btn-sm btn-outline-secondary"
+                          className="btn btn-sm btn-outline-dark text-white"
                           onClick={() => updateQuantity(item.id, item.cantidad + 1)}
                         >
                           <i className="bi bi-plus"></i>
@@ -122,7 +122,7 @@ export default function Cart() {
             </div>
             
             <div className="d-flex justify-content-between">
-              <Link to="/marketplace" className="btn btn-outline-primary">
+              <Link to="/marketplace" className="btn btn-outline-dark text-white">
                 <i className="bi bi-arrow-left me-2"></i>
                 {cartMessages.buttons.continueShopping}
               </Link>
@@ -150,7 +150,7 @@ export default function Cart() {
                 </div>
                 
                 <div className="d-grid gap-2">
-                  <button className="btn btn-primary btn-lg">
+                  <button className="btn btn-warning btn-lg">
                     {cartMessages.buttons.proceedPayment}
                   </button>
                 </div>

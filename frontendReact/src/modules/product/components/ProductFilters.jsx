@@ -142,7 +142,7 @@ export default function ProductFilters({ onFilterChange }) {
       
       {/* Filtro de categoría */}
       <div className="mb-4">
-        <h6 className="mb-2">Categoría</h6>
+        <h6 className="mb-2">Categorías</h6>
         <div className="row">
           {categoryOptions.map(option => (
             <div className="col-6" key={option.id}>

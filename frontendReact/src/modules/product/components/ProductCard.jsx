@@ -61,7 +61,7 @@ export default function ProductCard({ product }) {
         {/* Badge de descuento si existe */}
         {discountPercentage > 0 && (
           <div className="discount-badge">
-            <span className="badge bg-danger">
+            <span className="badge bg-amarillo text-black">
               -{discountPercentage}%
             </span>
           </div>

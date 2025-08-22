@@ -155,8 +155,22 @@
 
 input[type="range"]::-webkit-slider-thumb {
       background-color: var(--color-amarillo) !important;
-      box-shadow: var(--color-amarillo-claro) !important;
+      box-shadow: var(--color-negroA) !important;
     }
+
+.form-check-input:checked {
+  background-color: var(--color-negroA) !important; 
+  border-color: var(--color-negroA) !important;
+  box-shadow: var(--color-negroA) !important;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.15rem var(--color-amarillo)!important;
+}
+
+.form-check-input {
+  border: var(--color-negroA) !important;
+}
 
 .btn-warning:hover {
   background-color: var(--color-amarillo) !important;
