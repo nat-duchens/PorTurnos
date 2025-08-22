@@ -76,7 +76,7 @@ export default function Post() {
                         </article>
                     ) : null}
 
-                    <Link className="btn btn-outline-dark btn-rosa w-100 mt-3" to="/blog">← Volver al Blog</Link>
+                    <Link className="btn btn-outline-dark text-white w-100 mt-3" to="/blog">← Volver al Blog</Link>
                 </aside>
 
             </div>

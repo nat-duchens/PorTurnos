@@ -23,7 +23,7 @@ export default function FeaturedProducts() {
                   <p className="card-text flex-grow-1">{product.description}</p>
                   <div className="d-flex justify-content-between align-items-center mt-3">
                     <span className="fw-bold text-negro">${product.price.toLocaleString('es-CL')} CLP</span>
-                    <NavLink to="cart" className="btn btn-sm btn-warning">Añadir al carrito</NavLink>
+                    <NavLink to="cart" className="btn btn-sm btn-warning-white">Añadir al carrito</NavLink>
                   </div>
                 </div>
               </div>
@@ -32,7 +32,7 @@ export default function FeaturedProducts() {
         </div>
         
         <div className="text-center mt-5">
-          <NavLink to="/marketplace" className="btn btn-warning btn-lg">Ver todos los productos</NavLink>
+          <NavLink to="/marketplace" className="btn btn-warning-white btn-lg">Ver todos los productos</NavLink>
         </div>
       </div>
     </section>

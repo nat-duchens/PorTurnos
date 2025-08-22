@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 export default function Footer() {
   return (
-      <footer className="pt-footer mt-5" role="contentinfo">
+      <footer className="pt-footer mt-2 " role="contentinfo">
         <div className="container py-3">
           <div className="row g-4 align-items-start">
 

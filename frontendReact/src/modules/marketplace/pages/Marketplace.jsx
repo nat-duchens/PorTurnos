@@ -19,24 +19,24 @@ export default function Marketplace() {
     <div className="marketplace-page">
       
       {/* Estadísticas */}
-      <div className="bg-light py-3 border-bottom">
+      <div className="bg-light py-4 border-bottom">
         <div className="container">
           <div className="row text-center">
             <div className="col-md-4 mb-3 mb-md-0">
               <div className="d-flex align-items-center justify-content-center">
-                <i className="bi bi-controller fs-4 text-primary me-2"></i>
+                <i className="bi bi-controller fs-4 text-black me-2"></i>
                 <span className="fw-bold">500+ Juegos disponibles</span>
               </div>
             </div>
             <div className="col-md-4 mb-3 mb-md-0">
               <div className="d-flex align-items-center justify-content-center">
-                <i className="bi bi-people fs-4 text-primary me-2"></i>
+                <i className="bi bi-people fs-4 text-black me-2"></i>
                 <span className="fw-bold">300+ Vendedores activos</span>
               </div>
             </div>
             <div className="col-md-4">
               <div className="d-flex align-items-center justify-content-center">
-                <i className="bi bi-shield-check fs-4 text-primary me-2"></i>
+                <i className="bi bi-shield-check fs-4 text-black me-2"></i>
                 <span className="fw-bold">Garantía de Marketplace</span>
               </div>
             </div>
@@ -52,11 +52,11 @@ export default function Marketplace() {
         <div className="container">
           <div className="row g-4">
             <div className="col-md-4">
-              <div className="card h-100 border-0 shadow-sm">
+              <div className="card h-100 border-0 shadow-sm bg-negro border-4">
                 <div className="card-body text-center">
-                  <i className="bi bi-shield-check text-primary fs-1 mb-3"></i>
-                  <h4>Compra Segura</h4>
-                  <p className="text-muted">
+                  <i className="bi bi-shield-check text-warning fs-1 mb-3"></i>
+                  <h4 className='text-white'>Compra Segura</h4>
+                  <p className="text-white">
                     Todos los vendedores están verificados y las transacciones están protegidas por
                     nuestra garantía de devolución.
                   </p>
@@ -64,11 +64,11 @@ export default function Marketplace() {
               </div>
             </div>
             <div className="col-md-4">
-              <div className="card h-100 border-0 shadow-sm">
+              <div className="card h-100 border-0 shadow-sm bg-negro border-4">
                 <div className="card-body text-center">
-                  <i className="bi bi-cash-coin text-primary fs-1 mb-3"></i>
-                  <h4>Precios Increíbles</h4>
-                  <p className="text-muted">
+                  <i className="bi bi-cash-coin text-warning fs-1 mb-3"></i>
+                  <h4 className='text-white'>Precios Increíbles</h4>
+                  <p className="text-white">
                     Encuentra juegos de mesa usados con descuentos de hasta el 70% respecto a su
                     precio original.
                   </p>
@@ -76,11 +76,11 @@ export default function Marketplace() {
               </div>
             </div>
             <div className="col-md-4">
-              <div className="card h-100 border-0 shadow-sm">
+              <div className="card h-100 border-0 shadow-sm bg-negro border-4">
                 <div className="card-body text-center">
-                  <i className="bi bi-chat-dots text-primary fs-1 mb-3"></i>
-                  <h4>Comunidad Activa</h4>
-                  <p className="text-muted">
+                  <i className="bi bi-chat-dots text-warning fs-1 mb-3"></i>
+                  <h4 className='text-white'>Comunidad Activa</h4>
+                  <p className="text-white">
                     Conecta con otros jugadores, intercambia opiniones y encuentra los mejores
                     juegos para tu colección.
                   </p>
@@ -92,13 +92,13 @@ export default function Marketplace() {
       </section>
       
       {/* Call to Action */}
-      <section className="py-5 bg-primary text-white">
-        <div className="container text-center">
+      <section className="py-3 text-white">
+        <div className="container py-5 text-center rounded-4 bg-negro">
           <h2 className="mb-4">¿Tienes juegos que ya no usas?</h2>
           <p className="lead mb-4">
             Véndelos en nuestro marketplace y gana dinero mientras das una segunda vida a tus juegos.
           </p>
-          <a href="/marketplace/publish" className="btn btn-light btn-lg">
+          <a href="/marketplace/publish" className="btn btn-warning btn-lg">
             Publicar un juego
           </a>
         </div>

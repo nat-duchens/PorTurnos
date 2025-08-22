@@ -40,7 +40,7 @@ export default function ProductCard({ product }) {
   const conditionBadge = getConditionBadge(product.condition);
   
   return (
-    <div className="card product-card border-0 shadow-sm h-100">
+    <div className="card product-card border shadow-sm h-100">
       {/* Imagen del producto con badges */}
       <div className="card-img-container position-relative">
         <Link to={`/marketplace/product/${product.id}`}>
@@ -69,7 +69,7 @@ export default function ProductCard({ product }) {
         
         {/* Envío gratis - estilo Mercado Libre */}
         <div className="position-absolute bottom-0 start-0 m-2">
-          <span className="badge bg-success text-white">
+          <span className="badge bg-amarillo text-black">
             <i className="bi bi-truck me-1"></i>
             Envío gratis
           </span>
@@ -90,7 +90,7 @@ export default function ProductCard({ product }) {
         
         {/* Precio con descuento */}
         <div className="mb-1">
-          <span className="h5 text-primary mb-0">${product.price.toLocaleString('es-CL')}</span>
+          <span className="h5 text-black mb-0">${product.price.toLocaleString('es-CL')}</span>
           {product.originalPrice && (
             <>
               <span className="text-muted text-decoration-line-through ms-2 small">
@@ -136,10 +136,10 @@ export default function ProductCard({ product }) {
         
         {/* Botones de acción */}
         <div className="d-flex mt-auto gap-2">
-          <Link to={`/marketplace/product/${product.id}`} className="btn btn-sm btn-primary flex-grow-1">
+          <Link to={`/marketplace/product/${product.id}`} className="btn btn-sm btn-warning-white flex-grow-1">
             Ver detalles
           </Link>
-          <Link to="/cart" className="btn btn-sm btn-outline-primary">
+          <Link to="/cart" className="btn btn-sm btn-outline-dark text-white">
             <i className="bi bi-cart-plus"></i>
           </Link>
           <button className="btn btn-sm btn-outline-danger">

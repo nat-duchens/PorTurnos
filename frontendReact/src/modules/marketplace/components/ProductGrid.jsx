@@ -120,10 +120,10 @@ export default function ProductGrid({ searchQuery = '' }) {
         {/* Columna de filtros */}
         <div className="col-lg-3 mb-4 mb-lg-0">
           <div className="card border-0 shadow-sm">
-            <div className="card-header bg-white py-3">
+            <div className="card-header bg-negro text-white py-3">
               <h5 className="mb-0">Filtros</h5>
             </div>
-            <div className="card-body">
+            <div className="card-body border">
               <ProductFilters onFilterChange={handleFilterChange} />
             </div>
           </div>
@@ -173,14 +173,14 @@ export default function ProductGrid({ searchQuery = '' }) {
                       <div className="btn-group" role="group">
                         <button 
                           type="button" 
-                          className={`btn btn-sm btn-outline-primary ${viewMode === 'grid' ? 'active' : ''}`}
+                          className={`btn btn-sm btn-warning ${viewMode === 'grid' ? 'active' : ''}`}
                           onClick={() => setViewMode('grid')}
                         >
                           <i className="bi bi-grid-3x3-gap"></i>
                         </button>
                         <button 
                           type="button" 
-                          className={`btn btn-sm btn-outline-primary ${viewMode === 'list' ? 'active' : ''}`}
+                          className={`btn btn-sm btn-outline-dark text-white ${viewMode === 'list' ? 'active' : ''}`}
                           onClick={() => setViewMode('list')}
                         >
                           <i className="bi bi-list"></i>

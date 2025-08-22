@@ -57,7 +57,7 @@
 .pt-footlink{ color: var(--color-negroA); text-decoration: none; }
 .pt-footlink:hover{ text-decoration: underline; }
 .pt-social{ color: var(--color-negroA); }
-.pt-social:hover{ color: var(--color-rosa); }
+.pt-social:hover{ color: var(--color-negroA); transform: translateY(-1px); }
 
 /* Estilos para la landing page de PORTURNOS */
 
@@ -146,11 +146,35 @@
   border-color: var(--color-azul-oscuro) !important;
 }
 
-.btn-warning:hover {
-  background-color: var(--color-amarillo-oscuro) !important;
-  border-color: var(--color-amarillo-oscuro) !important;
+.btn-link:hover {
+  color: var(--color-negroA) !important;
+  border-color: var(--color-negroA) !important;
   transform: translateY(-1px);
-  box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.3), inset 0 0 40px rgba(0,0,0,0.15);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+      background-color: var(--color-amarillo) !important;
+      box-shadow: var(--color-amarillo-claro) !important;
+    }
+
+.btn-warning:hover {
+  background-color: var(--color-amarillo) !important;
+  border-color: var(--color-amarillo) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 2px rgba(0,0,0,0.3), inset 0 0 40px rgba(0,0,0,0.15);
+}
+
+.btn-warning-white {
+  background-color: var(--color-amarillo) !important;
+  border-color: var(--color-amarillo) !important;
+}
+
+.btn-warning-white:hover {
+  background-color: var(--color-amarillo) !important;
+  border-color: var(--color-amarillo) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 2px rgba(0,0,0,0.3), inset 0 0 40px rgba(0,0,0,0.05);
 }
 
 .btn-outline-light:hover {

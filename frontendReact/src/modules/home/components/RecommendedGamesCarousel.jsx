@@ -110,7 +110,7 @@ export default function RecommendedGamesCarousel() {
         </div>
         
         <div className="text-center mt-4">
-          <a href="#" className="btn btn-warning">Ver todas las recomendaciones</a>
+          <a href="#" className="btn btn-warning-white">Ver todas las recomendaciones</a>
         </div>
       </div>
     </section>

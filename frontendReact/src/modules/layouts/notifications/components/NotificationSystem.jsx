@@ -85,11 +85,11 @@ export default function NotificationSystem() {
             {/* Botón de notificaciones */}
             <div className="dropdown">
                 <button 
-                    className="btn btn-link position-relative p-0 text-dark" 
+                    className="btn btn-link ms-3 text-dark" 
                     onClick={() => setIsOpen(!isOpen)}
                     aria-expanded={isOpen}
                 >
-                    <i className="bi bi-bell fs-5"></i>
+                    <i className="bi bi-bell fs-8"></i>
                     {unreadCount > 0 && (
                         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             {unreadCount}

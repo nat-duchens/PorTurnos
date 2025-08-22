@@ -97,7 +97,7 @@ export default function Register() {
                         <div className="col-md-7 col-lg-6">
                             <div className="auth-card">
                                 <div className="text-center mb-3">
-                                    <i className="bi bi-person-plus-fill fs-1 text-rosa"></i>
+                                    <i className="bi bi-person-plus-fill fs-1 text-negro"></i>
                                     <h2 className="mt-2 gradient-title">Regístrate</h2>
                                 </div>
 
@@ -257,7 +257,7 @@ export default function Register() {
                                     <div className="d-grid">
                                         <button 
                                             type="submit" 
-                                            className="btn btn-outline-dark btn-rosa"
+                                            className="btn btn-outline-dark text-white"
                                             disabled={loading}
                                         >
                                             {loading ? (

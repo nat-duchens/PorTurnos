@@ -135,7 +135,7 @@ export default function Login() {
                                             disabled={loading}
                                         />
                                         <div className="mt-1 text-end">
-                                            <NavLink to="/forgot-password" className="small text-muted">
+                                            <NavLink to="/forgot-password" className="small text-primary">
                                                 ¿Olvidaste tu contraseña?
                                             </NavLink>
                                         </div>
@@ -156,7 +156,7 @@ export default function Login() {
                                     <div className="d-grid">
                                         <button 
                                             type="submit" 
-                                            className="btn btn-outline-dark btn-rosa"
+                                            className="btn btn-outline-dark text-white"
                                             disabled={loading}
                                         >
                                             {loading ? (

@@ -126,9 +126,9 @@ export default function Header() {
 
                             <div className="d-flex align-items-center">
                                 <NotificationSystem />
-                                <a href="#" className="pt-navlink ms-3" aria-label="Carrito">
+                                <NavLink to="/cart" className="pt-navlink ms-3 btn btn-link" aria-label="Carrito">
                                     <i className="bi bi-cart3"></i>
-                                </a>
+                                </NavLink>
                             </div>
                         </nav>
                     </div>

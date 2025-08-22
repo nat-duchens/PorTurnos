@@ -7,11 +7,11 @@ export default function Newsletter() {
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className="card border-0 shadow-lg">
-              <div className="card-body p-5">
+              <div className="card-body bg-negro p-5 rounded-4">
                 <div className="text-center mb-4">
-                  <i className="bi bi-envelope-paper fs-1 text-primary mb-3"></i>
-                  <h3 className="fw-bold">{newsletterContent.title}</h3>
-                  <p className="text-secondary">{newsletterContent.description}</p>
+                  <i className="bi bi-envelope-paper fs-1 text-warning mb-3"></i>
+                  <h3 className="fw-bold text-white">{newsletterContent.title}</h3>
+                  <p className="text-white">{newsletterContent.description}</p>
                 </div>
                 
                 <form className="row g-3" onSubmit={(e) => e.preventDefault()}>
@@ -25,12 +25,12 @@ export default function Newsletter() {
                     />
                   </div>
                   <div className="col-md-4">
-                    <button type="submit" className="btn btn-primary btn-lg w-100">Suscribirse</button>
+                    <button type="submit" className="btn btn-warning btn-lg w-100">Suscribirse</button>
                   </div>
                   <div className="col-12">
                     <div className="form-check">
                       <input className="form-check-input" type="checkbox" id="privacyCheck" required />
-                      <label className="form-check-label small" htmlFor="privacyCheck">
+                      <label className="form-check-label small text-white" htmlFor="privacyCheck">
                         {newsletterContent.privacyText}
                       </label>
                     </div>
